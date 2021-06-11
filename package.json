@@ -5,10 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:svenska:prod": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.test.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska-test $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.test.ylestatic.fi/$npm_package_name\"",
+    "deploy:svenska:test": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.ylestatic.fi/$npm_package_name\"",
+    "remove:svenska:prod": "cross-var dataviz-deploy rm svenska-test $npm_package_name",
+    "remove:svenska:test": "cross-var dataviz-deploy rm svenska $npm_package_name"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "d3-scale": "^4.0.0",
+    "leaflet": "^1.7.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -16,10 +22,14 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@yleisradio/dataviz-deploy": "^0.3.2",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "cross-var": "^1.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-yddviz": "~4.1.0"
   }
 }
