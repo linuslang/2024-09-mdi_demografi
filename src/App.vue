@@ -1,10 +1,24 @@
 <template>
-  <div class="party-checkboxes" v-if="type === 'partiesChange'">
+  <fieldset class="party-checkboxes" v-if="type === 'partiesChange'">
+    <legend>Välj parti</legend>
     <div class="checkbox-wrapper" v-for="party in parties" :key="party">
       <input :id="`filter-${party.pid}`" name="parties" type="radio" class="styled-checkbox" :value="party" v-model="selectedParty">
       <RadioLabel :party="party" />
     </div>
-  </div>
+  </fieldset>
+  <fieldset class="party-checkboxes" v-if="type === 'biggestParty'">
+    <legend>Välj år</legend>
+    <div class="checkbox-wrapper">
+      <input id="filter-2021" name="year" type="radio" class="styled-checkbox" :value="2021" v-model="year">
+      <label for="filter-2021" class="checkbox-label year-label">
+        <span class="checkbox-label-text">2021</span>
+      </label>
+      <input id="filter-2017" name="year" type="radio" class="styled-checkbox" :value="2017" v-model="year">
+      <label for="filter-2017" class="checkbox-label year-label">
+        <span class="checkbox-label-text">2017</span>
+      </label>
+    </div>
+  </fieldset>
   <div :id="`map-${type}`" class="election-map"></div>
 </template>
 
@@ -48,6 +62,7 @@ export default {
         "color": "#FF3333",
         "pid": "1"
       },
+      year: 2021,
     }
   },
   watch: {
@@ -57,7 +72,14 @@ export default {
           fillColor: this.getColor(layer.feature.properties.kunta)
         });
       });
-    }
+    },
+    year() {
+      this.features.eachLayer((layer) => {
+        layer.setStyle({
+          fillColor: this.getColor(layer.feature.properties.kunta)
+        });
+      });
+    },
   },
   computed: {
     domain() {
@@ -81,7 +103,7 @@ export default {
         case 'partiesChange':
           return ['#ea4d5e', '#eeeeee', '#85b074'];
         case 'shareNew':
-          return ['#b291d6', '#d4b5b1', '#ecd988', '#ffff51'];
+          return ['#7333d5', '#b678ab', '#dfbb78', '#f9ff00'];
         default:
           return ['#e2f7ff', '#000a47'];
       }
@@ -179,6 +201,11 @@ export default {
             div.innerHTML += `<i style="background: ${c}"></i>${labels[index]}<br>`;
           });
         }
+        else if (this.type === 'biggestParty') {
+          this.parties.forEach((party) => {
+            div.innerHTML += `<i style="background: ${party.color}"></i>${party.short_name_sv}<br>`;
+          });
+        }
         else if (this.type === 'shareNew') {
           const labels = [
             '< 10 %',
@@ -212,9 +239,8 @@ export default {
 		},
     highlightFeature(layer) {
       layer.setStyle({
-        weight: 5,
-        color: '#ffd539',
-        fillOpacity: 0.7
+        weight: 4,
+        color: '#fff',
       });
 
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -250,10 +276,16 @@ export default {
       };
     },
     getColor(id) {
+      if (!this.data[id]) return '#555';
       if (this.type === 'partiesChange') {
-        return data[id][this.type] ? this.colorScale(data[id].partiesChange[this.selectedParty.pid]) : '#555';
+        return this.data[id][this.type] ? this.colorScale(data[id].partiesChange[this.selectedParty.pid]) : '#555';
       }
-      return data[id][this.type] ? this.colorScale(data[id][this.type]) : '#555';
+      if (this.type === 'biggestParty') {
+        const pid = this.data[id][`biggestParty${this.year}`];
+        const party = this.parties.find(p => p.pid === pid);
+        return party ? party.color : '#9CACB5'; 
+      }
+      return this.data[id][this.type] ? this.colorScale(this.data[id][this.type]) : '#555';
     },
     getPopup(properties) {
       let str = '';
@@ -352,6 +384,10 @@ export default {
   justify-content: flex-start;
   padding: 0px;
   margin-bottom: 1em;
+
+  legend {
+    margin-bottom: .5em;
+  }
 }
 
 .checkbox-wrapper {

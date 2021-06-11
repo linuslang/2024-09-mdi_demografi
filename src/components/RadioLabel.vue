@@ -32,6 +32,12 @@ export default {
     background-color: v-bind('color');
     background-color: var(--0851552e-color);
     color: #fff;
+
+    &.year-label {
+      background-color: #f28a3b;
+      border-color: #975829;
+      color: #000;
+    }
   }
 
   .checkbox-label {
@@ -43,6 +49,12 @@ export default {
     line-height: 1;
     font-size: 16px;
     font-weight: bold;
+
+    &.year-label {
+      background: #fff;
+      border-color: #eee;
+      color: #999;
+    }
   }
 
   .checkbox-label-text {
