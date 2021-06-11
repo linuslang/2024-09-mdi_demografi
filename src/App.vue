@@ -1,4 +1,10 @@
 <template>
+  <div class="party-checkboxes" v-if="type === 'partiesChange'">
+    <div class="checkbox-wrapper" v-for="party in parties" :key="party">
+      <input :id="`filter-${party.pid}`" name="parties" type="radio" class="styled-checkbox" :value="party" v-model="selectedParty">
+      <RadioLabel :party="party" />
+    </div>
+  </div>
   <div :id="`map-${type}`" class="election-map"></div>
 </template>
 
@@ -11,6 +17,9 @@ const d3 = Object.assign(
 import L from 'leaflet'
 import mapData from './data/kommuner-2021.json'
 import data from './data/data.json'
+import parties from './data/parties.json'
+
+import RadioLabel from './components/RadioLabel'
 
 export default {
   name: 'App',
@@ -18,6 +27,7 @@ export default {
     type: String,
   },
   components: {
+    RadioLabel,
   },
   data() {
     return {
@@ -27,8 +37,26 @@ export default {
       legend: null,
       mapData,
       data,
+      parties,
       selectedFeature: null,
       previousFeature: null,
+      selectedParty: {
+        "name_fi": "SDP",
+        "name_sv": "Socialdemokraterna",
+        "short_name_fi": "SDP",
+        "short_name_sv": "SDP",
+        "color": "#FF3333",
+        "pid": "1"
+      },
+    }
+  },
+  watch: {
+    selectedParty() {
+      this.features.eachLayer((layer) => {
+        layer.setStyle({
+          fillColor: this.getColor(layer.feature.properties.kunta)
+        });
+      });
     }
   },
   computed: {
@@ -38,8 +66,10 @@ export default {
           return [41, 63];
         case 'maleShare':
           return [0.4, 0.45, 0.55, 0.6];
+        case 'shareNew':
+          return [0.1, 0.25, 0.5];
         default:
-          return null;
+          return [-10, 0, 10];
       }
     },
     colors() {
@@ -48,17 +78,21 @@ export default {
           return ['#e2f7ff', '#000a47'];
         case 'maleShare':
           return ['#f96700', '#ffad82', '#eeeeee', '#93c5c7', '#009ba1'];
+        case 'partiesChange':
+          return ['#ea4d5e', '#eeeeee', '#85b074'];
+        case 'shareNew':
+          return ['#b291d6', '#d4b5b1', '#ecd988', '#ffff51'];
         default:
           return ['#e2f7ff', '#000a47'];
       }
     },
     colorScale() {
-      if (this.type === 'age') {
-        return d3.scaleLinear()
+      if (this.type === 'maleShare' || this.type === 'shareNew') {
+        return d3.scaleThreshold()
           .domain(this.domain)
           .range(this.colors);
       }
-      return d3.scaleThreshold()
+      return d3.scaleLinear()
         .domain(this.domain)
         .range(this.colors);
     },
@@ -118,6 +152,20 @@ export default {
             </div>
           `
         }
+        else if (this.type === 'partiesChange') {
+          div.innerHTML = `
+            <h3>Förändring</h3>
+            <strong>2017-2021</strong>
+            <div class="legend">
+              <div class="gradient" style="background-image: linear-gradient(${this.colors[0]}, ${this.colors[1]}, ${this.colors[2]})"></div>
+              <div class="labels">
+                <span>${this.parseNo(this.domain[0], 0, true)} %-enh.</span>
+                <span>${this.parseNo(this.domain[1], 0, true)} %-enh.</span>
+                <span>${this.parseNo(this.domain[2], 0, true)} %-enh.</span>
+              </div>
+            </div>
+          `
+        }
         else if (this.type === 'maleShare') {
           const labels = [
             '> 60 % kvinnor',
@@ -131,16 +179,20 @@ export default {
             div.innerHTML += `<i style="background: ${c}"></i>${labels[index]}<br>`;
           });
         }
-        /* grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-        labels = [];
+        else if (this.type === 'shareNew') {
+          const labels = [
+            '< 10 %',
+            '10 - 25 %',
+            '25 - 50 %',
+            '> 50 %',
+          ];
 
-        // loop through our density intervals and generate a label with a colored square for each interval
-        for (var i = 0; i < grades.length; i++) {
-            div.innerHTML +=
-                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+          div.innerHTML += '<h3>Andel nyinvalda</h3>';
+
+          this.colors.forEach((c, index) => {
+            div.innerHTML += `<i style="background: ${c}"></i>${labels[index]}<br>`;
+          });
         }
-        */
         return div;
       };
 
@@ -162,7 +214,6 @@ export default {
       layer.setStyle({
         weight: 5,
         color: '#ffd539',
-        dashArray: '',
         fillOpacity: 0.7
       });
 
@@ -173,7 +224,7 @@ export default {
     dehighlight(layer) {
       if (this.selectedFeature === null || this.selectedFeature._leaflet_id !== layer._leaflet_id) {
         layer.setStyle({
-          color: '#333',
+          color: '#555',
           weight: 1,
         });
       }
@@ -194,11 +245,14 @@ export default {
         fillColor: this.getColor(feature.properties.kunta),
         weight: 1,
         opacity: 1,
-        color: '#333',
+        color: '#555',
         fillOpacity: 0.8,
       };
     },
     getColor(id) {
+      if (this.type === 'partiesChange') {
+        return data[id][this.type] ? this.colorScale(data[id].partiesChange[this.selectedParty.pid]) : '#555';
+      }
       return data[id][this.type] ? this.colorScale(data[id][this.type]) : '#555';
     },
     getPopup(properties) {
@@ -207,15 +261,23 @@ export default {
       str += `<br>Medelålder: ${this.parseNo(this.data[properties.kunta].age)} år`
       str += `<br>Andel kvinnor: ${this.parseNo((1 - this.data[properties.kunta].maleShare) * 100)} %`
       str += `<br>Andel män: ${this.parseNo(this.data[properties.kunta].maleShare * 100)} %`
+      str += `<br>Andel nyinvalda: ${this.parseNo(this.data[properties.kunta].shareNew * 100)} %`
       return str;
     },
-    parseNo(value, digits = 1) {
-      if (value) {
-        return value.toLocaleString('sv-SE', {
-          maximumFractionDigits: digits,
-        });
+    parseNo(value, decimals = 1, isChange = false) {
+      if (typeof value === 'undefined') {
+        return null;
       }
-      return null;
+      let prefix = '';
+      if (isChange) {
+        if (value === 0) {
+          prefix = '±';
+        }
+        else if (value > 0) {
+          prefix = '+';
+        }
+      }
+      return `${prefix}${value.toLocaleString('sv', { maximumFractionDigits: decimals })}`;
     }
   }
 }
@@ -225,7 +287,7 @@ export default {
 @import "~leaflet/dist/leaflet.css";
 
 #app-2021-06-kommunalval_kartor {
-  max-width: 980px;
+  max-width: 600px;
   margin: 0 auto;
   font-family: 'Open Sans', Arial, sans-serif;
 
@@ -247,8 +309,8 @@ export default {
     white-space: nowrap;
 
     h3 {
-      margin: 0 0 .5em;
-      font-size: 16px;
+      margin: 0;
+      font-size: 15px;
     }
 
     i {
@@ -265,7 +327,7 @@ export default {
     flex-direction: row;
 
     .gradient {
-      height: 140px;
+      height: 120px;
       width: 20px;
     }
 
@@ -275,10 +337,34 @@ export default {
       display: flex;
 
       span {
-        font-weight: bold;
+        font-weight: normal;
         margin-left: 4px;
       }
     }
+  }
+}
+
+.party-checkboxes {
+  align-items: center;
+  border: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0px;
+  margin-bottom: 1em;
+}
+
+.checkbox-wrapper {
+  margin: 0px 6px 12px 0px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    pointer-events: none;
+    margin: 0px !important;
+    padding: 0px !important;
   }
 }
 </style>
