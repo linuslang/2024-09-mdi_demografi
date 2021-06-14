@@ -342,7 +342,7 @@ export default {
 
 #app-2021-06-kommunalval_kartor {
   max-width: 640px;
-  margin: 0 10px;
+  margin: 0 15px;
   font-family: 'Open Sans', Arial, sans-serif;
 
   @media screen and (min-width: 640px) {
@@ -351,7 +351,7 @@ export default {
 
   .election-map {
     height: 600px;
-    max-height: 85vh;
+    max-height: 78vh;
     margin-bottom: 10px;
   }
 
