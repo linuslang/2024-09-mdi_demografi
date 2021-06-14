@@ -73,6 +73,7 @@ export default {
         layer.setStyle({
           fillColor: this.getColor(layer.feature.properties.kunta)
         });
+        layer._popup.setContent(this.getPopup(layer.feature.properties));
       });
     },
     year() {
@@ -297,12 +298,19 @@ export default {
     },
     getPopup(properties) {
       let str = '';
-      str += `<strong>${properties.namn}</strong>`;
-      if (this.type === 'biggestParty') {
+      if (this.type === 'partiesChange') {
+        str += `<strong>${this.selectedParty.short_name_sv} i ${properties.namn}</strong>`;
+        str += `<br>Väljarstöd 2017: ${this.data[properties.kunta].partiesResult2017[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesResult2017[this.selectedParty.pid])} %` : 'Inget resultat'}`
+        str += `<br>Väljarstöd 2021: ${this.data[properties.kunta].partiesResult2021[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesResult2021[this.selectedParty.pid])} %` : 'Inget resultat'}`
+        str += `<br>Förändring: ${this.data[properties.kunta].partiesChange[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesChange[this.selectedParty.pid], 1, true)} %-enh.` : 'Inget resultat'}`
+      }
+      else if (this.type === 'biggestParty') {
+        str += `<strong>${properties.namn}</strong>`;
         str += `<br>Största parti 2017: ${this.partiesObjects[this.data[properties.kunta].biggestParty2017] ? this.partiesObjects[this.data[properties.kunta].biggestParty2017].name_sv : 'Övriga'}`
         str += `<br>Största parti 2021: ${this.partiesObjects[this.data[properties.kunta].biggestParty2021] ? this.partiesObjects[this.data[properties.kunta].biggestParty2021].name_sv : 'Övriga'}`
       }
       else {
+        str += `<strong>${properties.namn}</strong>`;
         str += `<br>Medelålder: ${this.parseNo(this.data[properties.kunta].age)} år`
         str += `<br>Andel kvinnor: ${this.parseNo((1 - this.data[properties.kunta].maleShare) * 100)} %`
         str += `<br>Andel män: ${this.parseNo(this.data[properties.kunta].maleShare * 100)} %`
