@@ -91,7 +91,7 @@ export default {
         case 'maleShare':
           return [0.4, 0.45, 0.55, 0.6];
         case 'shareNew':
-          return [0.3, 0.5, 0.7];
+          return [0.4, 0.5, 0.6];
         default:
           return [-15, 0, 15];
       }
@@ -210,10 +210,10 @@ export default {
         }
         else if (this.type === 'shareNew') {
           const labels = [
-            '< 30 %',
-            '30 - 50 %',
-            '50 - 70 %',
-            '> 70 %',
+            '< 40 %',
+            '40 - 50 %',
+            '50 - 60 %',
+            '> 60 %',
           ];
 
           div.innerHTML += '<h3>Andel nyinvalda</h3>';
