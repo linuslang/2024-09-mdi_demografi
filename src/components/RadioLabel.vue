@@ -49,6 +49,7 @@ export default {
     line-height: 1;
     font-size: 16px;
     font-weight: bold;
+    color: #000;
 
     &.year-label {
       background: #fff;
