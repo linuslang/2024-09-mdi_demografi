@@ -1,0 +1,198 @@
+{
+  "1": {
+    "name_fi": "SDP",
+    "name_sv": "Socialdemokraterna",
+    "short_name_fi": "SDP",
+    "short_name_sv": "SDP",
+    "color": "#FF3333"
+  },
+  "2": {
+    "name_fi": "Keskusta",
+    "name_sv": "Centern",
+    "short_name_fi": "Kesk.",
+    "short_name_sv": "C",
+    "color": "#209E3A"
+  },
+  "4": {
+    "name_fi": "Kokoomus",
+    "name_sv": "Samlingspartiet",
+    "short_name_fi": "Kok.",
+    "short_name_sv": "Saml",
+    "color": "#005CB7"
+  },
+  "5": {
+    "name_fi": "RKP",
+    "name_sv": "Svenska folkpartiet",
+    "short_name_fi": "RKP",
+    "short_name_sv": "SFP",
+    "color": "#F9B800"
+  },
+  "8": {
+    "name_fi": "Suomen Kommunistinen Puolue",
+    "name_sv": "Kommunisterna",
+    "short_name_fi": "SKP",
+    "short_name_sv": "FKP",
+    "color": "#9CACB5"
+  },
+  "9": {
+    "name_fi": "Kristillisdemokraatit",
+    "name_sv": "Kristdemokraterna",
+    "short_name_fi": "KD",
+    "short_name_sv": "KD",
+    "color": "#7946E8"
+  },
+  "13": {
+    "name_fi": "Vihreät",
+    "name_sv": "De gröna",
+    "short_name_fi": "Vihr.",
+    "short_name_sv": "Gröna",
+    "color": "#6BD12A"
+  },
+  "15": {
+    "name_fi": "Vasemmistoliitto",
+    "name_sv": "Vänsterförbundet",
+    "short_name_fi": "Vas.",
+    "short_name_sv": "VF",
+    "color": "#9A003D"
+  },
+  "23": {
+    "name_fi": "Perussuomalaiset",
+    "name_sv": "Sannfinländarna",
+    "short_name_fi": "PS",
+    "short_name_sv": "Sannf",
+    "color": "#00C2EF"
+  },
+  "30": {
+    "name_fi": "Piraattipuolue",
+    "name_sv": "Piratpartiet",
+    "short_name_fi": "PP",
+    "short_name_sv": "Pir",
+    "color": "#191919"
+  },
+  "33": {
+    "name_fi": "Liberaalipuolue",
+    "name_sv": "Liberalpartiet",
+    "short_name_fi": "Lib.",
+    "short_name_sv": "Lib",
+    "color": "#F95900"
+  },
+  "34": {
+    "name_fi": "Eläinoikeuspuolue",
+    "name_sv": "Djurrättspartiet",
+    "short_name_fi": "EOP",
+    "short_name_sv": "DRP",
+    "color": "#9CACB5"
+  },
+  "35": {
+    "name_fi": "Kansalaispuolue",
+    "name_sv": "Medborgarpartiet",
+    "short_name_fi": "KP",
+    "short_name_sv": "Medb",
+    "color": "#9CACB5"
+  },
+  "36": {
+    "name_fi": "Feministinen puolue",
+    "name_sv": "Feministiska partiet",
+    "short_name_fi": "FP",
+    "short_name_sv": "Fem",
+    "color": "#FF4097"
+  },
+  "38": {
+    "name_fi": "Suomen Kansa Ensin",
+    "name_sv": "Suomen Kansa Ensin",
+    "short_name_fi": "SKE",
+    "short_name_sv": "SKE",
+    "color": "#9CACB5"
+  },
+  "40": {
+    "name_fi": "Liike Nyt",
+    "name_sv": "Rörelse Nu",
+    "short_name_fi": "Liik.",
+    "short_name_sv": "RN",
+    "color": "#AF0079"
+  },
+  "41": {
+    "name_fi": "Avoin Puolue",
+    "name_sv": "Avoin Puolue",
+    "short_name_fi": "AP",
+    "short_name_sv": "AP",
+    "color": "#9CACB5"
+  },
+  "42": {
+    "name_fi": "Kristallipuolue",
+    "name_sv": "Kristall Parti",
+    "short_name_fi": "Kristall.",
+    "short_name_sv": "Kristall",
+    "color": "#9CACB5"
+  },
+  "2249": {
+    "name_fi": "Karkkilaan sitoutuneet yhteislista",
+    "name_sv": "Karkkilaan sitoutuneet yhteislista",
+    "short_name_fi": "YL1",
+    "short_name_sv": "YL1",
+    "color": "#9CACB5"
+  },
+  "2737": {
+    "name_fi": "Kolari 21 yhteislista",
+    "name_sv": "Kolari 21 yhteislista",
+    "short_name_fi": "K21YL",
+    "short_name_sv": "K21YL",
+    "color": "#9CACB5"
+  },
+  "3166": {
+    "name_fi": "Kärkölä-ryhmä yhteislista",
+    "name_sv": "Kärkölä-ryhmä yhteislista",
+    "short_name_fi": "KÄRRY",
+    "short_name_sv": "KÄRRY",
+    "color": "#9CACB5"
+  },
+  "5387": {
+    "name_fi": "PRO Nousiainen yhteislista",
+    "name_sv": "PRO Nousiainen yhteislista",
+    "short_name_fi": "PRO",
+    "short_name_sv": "PRO",
+    "color": "#9CACB5"
+  },
+  "5836": {
+    "name_fi": "Pyhä-Pelkosenniemi -yhteislista",
+    "name_sv": "Pyhä-Pelkosenniemi -yhteislista",
+    "short_name_fi": "PPYL",
+    "short_name_sv": "PPYL",
+    "color": "#9CACB5"
+  },
+  "6015": {
+    "name_fi": "Pihtiputaan Parhaaksi yhteislista",
+    "name_sv": "Pihtiputaan Parhaaksi yhteislista",
+    "short_name_fi": "PPY",
+    "short_name_sv": "PPY",
+    "color": "#9CACB5"
+  },
+  "6314": {
+    "name_fi": "Yhteislista Yhteinen Pyhäranta",
+    "name_sv": "Yhteislista Yhteinen Pyhäranta",
+    "short_name_fi": "YP",
+    "short_name_sv": "YP",
+    "color": "#9CACB5"
+  },
+  "7029": {
+    "name_fi": "Ruoveden Etu yhteislista",
+    "name_sv": "Ruoveden Etu yhteislista",
+    "short_name_fi": "Ruotu",
+    "short_name_sv": "Ruotu",
+    "color": "#9CACB5"
+  },
+  "9347": {
+    "name_fi": "Haloo Vimpeli yhteislista",
+    "name_sv": "Haloo Vimpeli yhteislista",
+    "short_name_fi": "Haloo",
+    "short_name_sv": "Haloo",
+    "color": "#9CACB5"
+  },
+  "0477": {
+    "name_fi": "Yhteislista Enontekiöläisten ääni",
+    "name_sv": "Yhteislista Enontekiöläisten ääni",
+    "short_name_fi": "YLEÄ",
+    "short_name_sv": "YLEÄ",
+    "color": "#9CACB5"
+  }
+}

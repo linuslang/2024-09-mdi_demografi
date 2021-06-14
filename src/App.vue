@@ -32,6 +32,7 @@ import L from 'leaflet'
 import mapData from './data/kommuner-2021.json'
 import data from './data/data.json'
 import parties from './data/parties.json'
+import partiesObjects from './data/partiesObjects.json'
 
 import RadioLabel from './components/RadioLabel'
 
@@ -52,6 +53,7 @@ export default {
       mapData,
       data,
       parties,
+      partiesObjects,
       selectedFeature: null,
       previousFeature: null,
       selectedParty: {
@@ -85,13 +87,13 @@ export default {
     domain() {
       switch(this.type) {
         case 'age':
-          return [41, 63];
+          return [41.5, 59.4];
         case 'maleShare':
           return [0.4, 0.45, 0.55, 0.6];
         case 'shareNew':
-          return [0.1, 0.25, 0.5];
+          return [0.3, 0.5, 0.7];
         default:
-          return [-10, 0, 10];
+          return [-15, 0, 15];
       }
     },
     colors() {
@@ -166,10 +168,10 @@ export default {
           div.innerHTML = `
             <h3>Medelålder</h3>
             <div class="legend">
-              <div class="gradient" style="background-image: linear-gradient(${this.colors[0]}, ${this.colors[1]})"></div>
+              <div class="gradient" style="background-image: linear-gradient(${this.colors[1]}, ${this.colors[0]})"></div>
               <div class="labels">
-                <span>${this.domain[0]} år</span>
-                <span>${this.domain[1]} år</span>
+                <span>${this.parseNo(this.domain[1])} år</span>
+                <span>${this.parseNo(this.domain[0])} år</span>
               </div>
             </div>
           `
@@ -208,10 +210,10 @@ export default {
         }
         else if (this.type === 'shareNew') {
           const labels = [
-            '< 10 %',
-            '10 - 25 %',
-            '25 - 50 %',
-            '> 50 %',
+            '< 30 %',
+            '30 - 50 %',
+            '50 - 70 %',
+            '> 70 %',
           ];
 
           div.innerHTML += '<h3>Andel nyinvalda</h3>';
@@ -272,8 +274,14 @@ export default {
         weight: 1,
         opacity: 1,
         color: '#555',
-        fillOpacity: 0.8,
+        fillOpacity: 0.9,
       };
+    },
+    getWeight(id) {
+      if (this.type === 'biggestParty') {
+        return this.data[id].biggestParty2017 !== this.data[id].biggestParty2021 ? 2 : 0.5;
+      }
+      else return 1;
     },
     getColor(id) {
       if (!this.data[id]) return '#555';
@@ -282,7 +290,7 @@ export default {
       }
       if (this.type === 'biggestParty') {
         const pid = this.data[id][`biggestParty${this.year}`];
-        const party = this.parties.find(p => p.pid === pid);
+        const party = this.partiesObjects[pid];
         return party ? party.color : '#9CACB5'; 
       }
       return this.data[id][this.type] ? this.colorScale(this.data[id][this.type]) : '#555';
@@ -290,10 +298,16 @@ export default {
     getPopup(properties) {
       let str = '';
       str += `<strong>${properties.namn}</strong>`;
-      str += `<br>Medelålder: ${this.parseNo(this.data[properties.kunta].age)} år`
-      str += `<br>Andel kvinnor: ${this.parseNo((1 - this.data[properties.kunta].maleShare) * 100)} %`
-      str += `<br>Andel män: ${this.parseNo(this.data[properties.kunta].maleShare * 100)} %`
-      str += `<br>Andel nyinvalda: ${this.parseNo(this.data[properties.kunta].shareNew * 100)} %`
+      if (this.type === 'biggestParty') {
+        str += `<br>Största parti 2017: ${this.partiesObjects[this.data[properties.kunta].biggestParty2017] ? this.partiesObjects[this.data[properties.kunta].biggestParty2017].name_sv : 'Övriga'}`
+        str += `<br>Största parti 2021: ${this.partiesObjects[this.data[properties.kunta].biggestParty2021] ? this.partiesObjects[this.data[properties.kunta].biggestParty2021].name_sv : 'Övriga'}`
+      }
+      else {
+        str += `<br>Medelålder: ${this.parseNo(this.data[properties.kunta].age)} år`
+        str += `<br>Andel kvinnor: ${this.parseNo((1 - this.data[properties.kunta].maleShare) * 100)} %`
+        str += `<br>Andel män: ${this.parseNo(this.data[properties.kunta].maleShare * 100)} %`
+        str += `<br>Andel nyinvalda: ${this.parseNo(this.data[properties.kunta].shareNew * 100)} %`
+      }
       return str;
     },
     parseNo(value, decimals = 1, isChange = false) {
@@ -319,7 +333,7 @@ export default {
 @import "~leaflet/dist/leaflet.css";
 
 #app-2021-06-kommunalval_kartor {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   font-family: 'Open Sans', Arial, sans-serif;
 
@@ -392,6 +406,10 @@ export default {
 
 .checkbox-wrapper {
   margin: 0px 6px 12px 0px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   input {
     position: absolute;

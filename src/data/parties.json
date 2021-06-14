@@ -72,75 +72,11 @@
     "pid": "40"
   },
   {
-    "name_fi": "Feministinen puolue",
-    "name_sv": "Feministiska partiet",
-    "short_name_fi": "FP",
-    "short_name_sv": "Fem",
-    "color": "#FF4097",
-    "pid": "36"
-  },
-  {
-    "name_fi": "Liberaalipuolue",
-    "name_sv": "Liberalpartiet",
-    "short_name_fi": "Lib.",
-    "short_name_sv": "Lib",
-    "color": "#F95900",
-    "pid": "33"
-  },
-  {
-    "name_fi": "Piraattipuolue",
-    "name_sv": "Piratpartiet",
-    "short_name_fi": "PP",
-    "short_name_sv": "Pir",
-    "color": "#191919",
-    "pid": "30"
-  },
-  {
-    "name_fi": "Suomen Kansa Ensin",
-    "name_sv": "Suomen Kansa Ensin",
-    "short_name_fi": "SKE",
-    "short_name_sv": "SKE",
+    "name_fi": "Muut puolueet",
+    "name_sv": "Övriga",
+    "short_name_fi": "Muut",
+    "short_name_sv": "Övr",
     "color": "#9CACB5",
-    "pid": "38"
-  },
-  {
-    "name_fi": "Eläinoikeuspuolue",
-    "name_sv": "Djurrättspartiet",
-    "short_name_fi": "EOP",
-    "short_name_sv": "DRP",
-    "color": "#9CACB5",
-    "pid": "34"
-  },
-  {
-    "name_fi": "Kansalaispuolue",
-    "name_sv": "Medborgarpartiet",
-    "short_name_fi": "KP",
-    "short_name_sv": "Medb",
-    "color": "#9CACB5",
-    "pid": "35"
-  },
-  {
-    "name_fi": "Suomen Kommunistinen Puolue",
-    "name_sv": "Kommunisterna",
-    "short_name_fi": "SKP",
-    "short_name_sv": "FKP",
-    "color": "#9CACB5",
-    "pid": "8"
-  },
-  {
-    "name_fi": "Avoin Puolue",
-    "name_sv": "Avoin Puolue",
-    "short_name_fi": "AP",
-    "short_name_sv": "AP",
-    "color": "#9CACB5",
-    "pid": "41"
-  },
-  {
-    "name_fi": "Kristallipuolue",
-    "name_sv": "Kristall Parti",
-    "short_name_fi": "Kristall.",
-    "short_name_sv": "Kristall",
-    "color": "#9CACB5",
-    "pid": "42"
+    "pid": "99"
   }
 ]

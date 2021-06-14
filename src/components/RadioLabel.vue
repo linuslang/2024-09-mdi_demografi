@@ -60,7 +60,7 @@ export default {
   .checkbox-label-text {
     color: inherit;
     letter-spacing: 0.05em;
-    padding: 0px 12px;
+    padding: 0px 9px;
     text-align: center;
     cursor: pointer;
     user-select: none;
