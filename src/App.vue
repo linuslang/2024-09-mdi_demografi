@@ -40,6 +40,7 @@ export default {
   name: 'App',
   props: {
     type: String,
+    zoom: String,
   },
   components: {
     RadioLabel,
@@ -126,8 +127,18 @@ export default {
     this.initMap();
   },
   methods: {
+    getZoom() {
+      if (this.zoom) {
+        return [[60.5, 22.5], 8];
+      }
+      else {
+        return [[61.85, 25], 5];
+      }
+    },
     initMap() {
-      const mapBounds = new L.LatLngBounds(new L.LatLng(59.8, 16), new L.LatLng(70, 35));
+      const mapBounds = new L.LatLngBounds(new L.LatLng(59.7, 16), new L.LatLng(70, 35));
+
+      const [coordinates, zoom] = this.getZoom(); 
 
       this.map = L.map(`map-${this.type}`, {
         // zoomControl: false,
@@ -138,7 +149,7 @@ export default {
         maxZoom: 10,
         maxBounds: mapBounds,
         maxBoundsViscosity: 0.5,
-      }).setView([61.85, 25], 5);
+      }).setView(coordinates, zoom);
       
       /*this.tileLayer = L.tileLayer(
         'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy:svenska:prod": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.test.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska-test $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.test.ylestatic.fi/$npm_package_name\"",
-    "deploy:svenska:test": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.ylestatic.fi/$npm_package_name\"",
+    "deploy:svenska:prod": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.ylestatic.fi/$npm_package_name\"",
+    "deploy:svenska:test": "cross-var cross-env PUBLIC_URL=https://svenska-dataviz.test.ylestatic.fi/$npm_package_name/ yarn run build && dataviz-deploy generate --dir dist && cross-var dataviz-deploy sync svenska-test $npm_package_name --folder dist && cross-var echo \"https://svenska-dataviz.test.ylestatic.fi/$npm_package_name\"",
     "remove:svenska:prod": "cross-var dataviz-deploy rm svenska-test $npm_package_name",
     "remove:svenska:test": "cross-var dataviz-deploy rm svenska $npm_package_name"
   },
