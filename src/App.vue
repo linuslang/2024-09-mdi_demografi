@@ -351,7 +351,7 @@ export default {
 <style lang="scss">
 @import "~leaflet/dist/leaflet.css";
 
-#app-2021-06-kommunalval_kartor {
+#app-2022-01-omradesval_kartor {
   max-width: 640px;
   margin: 0 15px;
   font-family: 'Open Sans', Arial, sans-serif;

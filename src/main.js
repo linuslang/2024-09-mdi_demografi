@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-const appName = '2021-06-kommunalval_kartor';
+const appName = '2022-01-omradesval_kartor';
 
 const eventHandlers = {
   onMount: (name, element, services = {}) => {

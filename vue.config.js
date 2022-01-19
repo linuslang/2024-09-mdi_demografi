@@ -1,7 +1,7 @@
 module.exports = {
   configureWebpack: {
     output: {
-      jsonpFunction: 'webpackJsonp2021-06-kommunalval_kartor',
+      jsonpFunction: 'webpackJsonp2022-01-omradesval_kartor',
     }
   },
   devServer: {
