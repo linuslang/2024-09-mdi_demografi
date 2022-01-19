@@ -1,62 +1,67 @@
 <template>
-  <fieldset class="party-checkboxes" v-if="type === 'partiesChange'">
-    <legend>Välj parti</legend>
-    <div class="checkbox-wrapper" v-for="party in parties" :key="party">
-      <input :id="`filter-${party.pid}`" name="parties" type="radio" class="styled-checkbox" :value="party" v-model="selectedParty">
-      <RadioLabel :party="party" />
-    </div>
-  </fieldset>
-  <fieldset class="party-checkboxes" v-if="type === 'biggestParty'">
-    <legend>Välj år</legend>
-    <div class="checkbox-wrapper">
-      <input id="filter-2021" name="year" type="radio" class="styled-checkbox" :value="2021" v-model="year">
-      <label for="filter-2021" class="checkbox-label year-label">
-        <span class="checkbox-label-text">2021</span>
-      </label>
-      <input id="filter-2017" name="year" type="radio" class="styled-checkbox" :value="2017" v-model="year">
-      <label for="filter-2017" class="checkbox-label year-label">
-        <span class="checkbox-label-text">2017</span>
-      </label>
-    </div>
-  </fieldset>
-  <div :id="`map-${type}`" class="election-map"></div>
+  <svg role="group" xmlns="http://www.w3.org/2000/svg" :viewBox="viewBox" class="election-map">
+    <g class="paths" v-if="paths">
+      <path
+        v-for="path in paths"
+        :d="path.d"
+        :fill="getFill(path.data)"
+        :key="path.id"
+        @click="onClick(path.id)"
+      />
+      <path
+        :d="selectedPath.d"
+        fill="none"
+        class="active"
+        v-if="selectedPath"
+      />
+    </g>
+    <image
+      v-else
+      xlink:href="./assets/loading.svg"
+      :width="width" :height="height"
+    />
+    <MapLegend :title="title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" />
+  </svg>
+  <SortedTable :data="paths" :type="type" />
+  <pre v-if="error">{{ error }}</pre>
 </template>
 
 <script>
 const d3 = Object.assign(
   {},
+  require('d3-geo'),
   require('d3-scale'),
+  require('d3-array')
 )
 
-import L from 'leaflet'
-import mapData from './data/kommuner-2021.json'
+import * as topojson from 'topojson-client'
+
 import data from './data/data.json'
 import parties from './data/parties.json'
 import partiesObjects from './data/partiesObjects.json'
 
-import RadioLabel from './components/RadioLabel'
+import MapLegend from './components/MapLegend.vue'
+import SortedTable from './components/SortedTable.vue'
 
 export default {
   name: 'App',
   props: {
     type: String,
-    zoom: String,
+    zoomed: Boolean,
   },
   components: {
-    RadioLabel,
+    MapLegend,
+    SortedTable,
   },
   data() {
     return {
-      map: null,
-      tileLayer: null,
+      width: 400,
       features: null,
-      legend: null,
-      mapData,
+      error: false,
       data,
       parties,
       partiesObjects,
-      selectedFeature: null,
-      previousFeature: null,
+      selected: null,
       selectedParty: {
         "name_fi": "SDP",
         "name_sv": "Socialdemokraterna",
@@ -65,27 +70,17 @@ export default {
         "color": "#FF3333",
         "pid": "1"
       },
-      year: 2021,
     }
   },
   watch: {
-    selectedParty() {
-      this.features.eachLayer((layer) => {
-        layer.setStyle({
-          fillColor: this.getColor(layer.feature.properties.kunta)
-        });
-        layer._popup.setContent(this.getPopup(layer.feature.properties));
-      });
-    },
-    year() {
-      this.features.eachLayer((layer) => {
-        layer.setStyle({
-          fillColor: this.getColor(layer.feature.properties.kunta)
-        });
-      });
-    },
   },
   computed: {
+    viewBox() {
+      return `0 0 ${this.width} ${this.height}`;
+    },
+    height() {
+      return this.zoomed ? 500 : 720;
+    },
     domain() {
       switch(this.type) {
         case 'age':
@@ -97,6 +92,15 @@ export default {
         default:
           return [-15, 0, 15];
       }
+    },
+    title() {
+      if (this.type === 'age') {
+        return 'Medelålder';
+      }
+      return false;
+    },
+    subtitle() {
+      return false;
     },
     colors() {
       switch(this.type) {
@@ -112,6 +116,26 @@ export default {
           return ['#e2f7ff', '#000a47'];
       }
     },
+    ranges() {
+      if (this.type === 'maleShare') {
+        return [
+          '> 60 % kvinnor',
+          '> 55 % kvinnor',
+          'Jämn fördelning',
+          '> 55 % män',
+          '> 60 % män',
+        ];
+      }
+      else if (this.type === 'shareNew') {
+        return [
+          '< 40 %',
+          '40 - 50 %',
+          '50 - 60 %',
+          '> 60 %',
+        ];
+      }
+      else return null;
+    },
     colorScale() {
       if (this.type === 'maleShare' || this.type === 'shareNew') {
         return d3.scaleThreshold()
@@ -122,212 +146,71 @@ export default {
         .domain(this.domain)
         .range(this.colors);
     },
+    projection() {
+      const zoomPoint = this.features;
+      const margin = 0;
+
+      return d3.geoTransverseMercator()
+        .rotate([-25,0])
+        .fitExtent([[margin, margin], [this.width - margin, this.height - margin]], zoomPoint);
+    },
+    path() {
+      return d3.geoPath().projection(this.projection);
+    },
+    paths() {
+      if (this.features) {
+        return this.features.features.map((d) => {
+          const data = this.data[d.properties.id];
+
+          return {
+            id: d.properties.id,
+            d: this.path(d.geometry),
+            name: d.properties.name_sv,
+            data,
+          };
+        });
+      }
+      return null;
+    },
+    selectedPath() {
+      if (this.paths && this.selected) {
+        return this.paths.find((d) => d.id === this.selected);
+      }
+      return null;
+    },
   },
   mounted() {
     this.initMap();
   },
   methods: {
-    getZoom() {
-      if (this.zoom) {
-        return [[60.5, 22.5], 8];
-      }
-      else {
-        return [[61.85, 25], 5];
-      }
-    },
     initMap() {
-      const mapBounds = new L.LatLngBounds(new L.LatLng(59.7, 16), new L.LatLng(70, 35));
+      const url = `${process.env.BASE_URL}data/kommuner-omraden.json`;
 
-      const [coordinates, zoom] = this.getZoom(); 
-
-      this.map = L.map(`map-${this.type}`, {
-        // zoomControl: false,
-        // scrollWheelZoom: false,
-        // doubleClickZoom: false,
-        // dragging: false,
-        minZoom: 5,
-        maxZoom: 10,
-        maxBounds: mapBounds,
-        maxBoundsViscosity: 0.5,
-      }).setView(coordinates, zoom);
-      
-      /*this.tileLayer = L.tileLayer(
-        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-          attribution: '&copy; <a href="https://www.mapbox.com">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
-          id: 'mapbox/light-v10',
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: 'pk.eyJ1IjoieWxlaXNyYWRpbyIsImEiOiJjam95NDdtc2cwdjZxM3VwYzNtcjZpbXh4In0.lEaQ-uHBm9j-uS0Y5NfjBA',
-          // noWrap: true,
-      });
-
-      this.tileLayer.addTo(this.map)*/
-
-      this.features = L.geoJSON(this.mapData, {
-        onEachFeature: this.onEachFeature,
-        style: this.style,
-      }).addTo(this.map);
-
-      this.addLegend();
-    },
-    addLegend() {
-      this.legend = L.control({position: 'topleft'});
-
-      this.legend.onAdd = () => {
-        const div = L.DomUtil.create('div', 'info');
-
-        if (this.type === 'age') {
-          div.innerHTML = `
-            <h3>Medelålder</h3>
-            <div class="legend">
-              <div class="gradient" style="background-image: linear-gradient(${this.colors[1]}, ${this.colors[0]})"></div>
-              <div class="labels">
-                <span>${this.parseNo(this.domain[1])} år</span>
-                <span>${this.parseNo(this.domain[0])} år</span>
-              </div>
-            </div>
-          `
-        }
-        else if (this.type === 'partiesChange') {
-          div.innerHTML = `
-            <h3>Förändring</h3>
-            <strong>2017-2021</strong>
-            <div class="legend">
-              <div class="gradient" style="background-image: linear-gradient(${this.colors[0]}, ${this.colors[1]}, ${this.colors[2]})"></div>
-              <div class="labels">
-                <span>${this.parseNo(this.domain[0], 0, true)} %-enh.</span>
-                <span>${this.parseNo(this.domain[1], 0, true)} %-enh.</span>
-                <span>${this.parseNo(this.domain[2], 0, true)} %-enh.</span>
-              </div>
-            </div>
-          `
-        }
-        else if (this.type === 'maleShare') {
-          const labels = [
-            '> 60 % kvinnor',
-            '> 55 % kvinnor',
-            'Jämn fördelning',
-            '> 55 % män',
-            '> 60 % män',
-          ];
-
-          this.colors.forEach((c, index) => {
-            div.innerHTML += `<i style="background: ${c}"></i>${labels[index]}<br>`;
-          });
-        }
-        else if (this.type === 'biggestParty') {
-          this.parties.forEach((party) => {
-            div.innerHTML += `<i style="background: ${party.color}"></i>${party.short_name_sv}<br>`;
-          });
-        }
-        else if (this.type === 'shareNew') {
-          const labels = [
-            '< 40 %',
-            '40 - 50 %',
-            '50 - 60 %',
-            '> 60 %',
-          ];
-
-          div.innerHTML += '<h3>Andel nyinvalda</h3>';
-
-          this.colors.forEach((c, index) => {
-            div.innerHTML += `<i style="background: ${c}"></i>${labels[index]}<br>`;
-          });
-        }
-        return div;
-      };
-
-      this.legend.addTo(this.map);
-    },
-    select(layer) {
-      if (this.selectedFeature !== null) {
-        this.previousFeature = this.selectedFeature;
-      }
-
-      this.highlightFeature(layer);
-      this.selectedFeature = layer;
-
-      if (this.previousFeature) {
-        this.dehighlight(this.previousFeature);
-			}
-		},
-    highlightFeature(layer) {
-      layer.setStyle({
-        weight: 4,
-        color: '#fff',
-      });
-
-      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-      }
-    },
-    dehighlight(layer) {
-      if (this.selectedFeature === null || this.selectedFeature._leaflet_id !== layer._leaflet_id) {
-        layer.setStyle({
-          color: '#555',
-          weight: 1,
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          //const featureType = this.type === 'representation' ? 'munis' : 'hva';
+          const featureType = 'munis';
+          this.features = topojson.feature(data, data.objects[featureType]);
+        })
+        .catch((error) => {
+          this.error = error;
         });
-      }
-		},
-    onEachFeature(feature, layer) {
-      if (feature.properties) {
-        layer.bindPopup(this.getPopup(feature.properties));
-      }
-      layer.on({
-        'click': (e) => {
-          // console.log(e.target.feature);
-          this.select(e.target);
-        }
-      });
     },
-    style(feature) {
-      return {
-        fillColor: this.getColor(feature.properties.kunta),
-        weight: 1,
-        opacity: 1,
-        color: '#555',
-        fillOpacity: 0.9,
-      };
-    },
-    getWeight(id) {
-      if (this.type === 'biggestParty') {
-        return this.data[id].biggestParty2017 !== this.data[id].biggestParty2021 ? 2 : 0.5;
-      }
-      else return 1;
-    },
-    getColor(id) {
-      if (!this.data[id]) return '#555';
+    getFill(data) {
+      if (!data) return '#555';
       if (this.type === 'partiesChange') {
-        return this.data[id][this.type] ? this.colorScale(data[id].partiesChange[this.selectedParty.pid]) : '#555';
+        return data[this.type] ? this.colorScale(data.partiesChange[this.selectedParty.pid]) : '#555';
       }
       if (this.type === 'biggestParty') {
-        const pid = this.data[id][`biggestParty${this.year}`];
+        const pid = data[`biggestParty2021`];
         const party = this.partiesObjects[pid];
         return party ? party.color : '#9CACB5'; 
       }
-      return this.data[id][this.type] ? this.colorScale(this.data[id][this.type]) : '#555';
+      return data[this.type] ? this.colorScale(data[this.type]) : '#555';
     },
-    getPopup(properties) {
-      let str = '';
-      if (this.type === 'partiesChange') {
-        str += `<strong>${this.selectedParty.short_name_sv} i ${properties.namn}</strong>`;
-        str += `<br>Väljarstöd 2017: ${this.data[properties.kunta].partiesResult2017[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesResult2017[this.selectedParty.pid])} %` : 'Inget resultat'}`
-        str += `<br>Väljarstöd 2021: ${this.data[properties.kunta].partiesResult2021[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesResult2021[this.selectedParty.pid])} %` : 'Inget resultat'}`
-        str += `<br>Förändring: ${this.data[properties.kunta].partiesChange[this.selectedParty.pid] ? `${this.parseNo(this.data[properties.kunta].partiesChange[this.selectedParty.pid], 1, true)} %-enh.` : 'Inget resultat'}`
-      }
-      else if (this.type === 'biggestParty') {
-        str += `<strong>${properties.namn}</strong>`;
-        str += `<br>Största parti 2017: ${this.partiesObjects[this.data[properties.kunta].biggestParty2017] ? this.partiesObjects[this.data[properties.kunta].biggestParty2017].name_sv : 'Övriga'}`
-        str += `<br>Största parti 2021: ${this.partiesObjects[this.data[properties.kunta].biggestParty2021] ? this.partiesObjects[this.data[properties.kunta].biggestParty2021].name_sv : 'Övriga'}`
-      }
-      else {
-        str += `<strong>${properties.namn}</strong>`;
-        str += `<br>Medelålder: ${this.parseNo(this.data[properties.kunta].age)} år`
-        str += `<br>Andel kvinnor: ${this.parseNo((1 - this.data[properties.kunta].maleShare) * 100)} %`
-        str += `<br>Andel män: ${this.parseNo(this.data[properties.kunta].maleShare * 100)} %`
-        str += `<br>Andel nyinvalda: ${this.parseNo(this.data[properties.kunta].shareNew * 100)} %`
-      }
-      return str;
+    onClick(id) {
+      this.selected = id;
     },
     parseNo(value, decimals = 1, isChange = false) {
       if (typeof value === 'undefined') {
@@ -349,12 +232,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~leaflet/dist/leaflet.css";
-
 #app-2022-01-omradesval_kartor {
   max-width: 640px;
   margin: 0 15px;
   font-family: 'Open Sans', Arial, sans-serif;
+  text-align: center;
 
   @media screen and (min-width: 640px) {
     margin: 0 auto;
@@ -364,6 +246,18 @@ export default {
     height: 600px;
     max-height: 78vh;
     margin-bottom: 10px;
+
+    .paths {
+      path {
+        stroke-width: 1px;
+        stroke: #555;
+      }
+
+      .active {
+        stroke-width: 3px;
+        stroke: #ffaa00;
+      }
+    }
   }
 
   .info {

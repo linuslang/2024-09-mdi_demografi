@@ -5,14 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//design-system.cdn.yle.fi/fonts.css">
     <style>
       body {
         background-color: #fff;
         color: #000;
         font-family: "Open Sans",system-ui,blinkmacsystemfont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
         line-height: 1.36;
+        margin: 0;
       }
+
+      *, ::before, ::after {
+        box-sizing: border-box;
+      }
+
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #1b1e20;

@@ -11,7 +11,7 @@ const eventHandlers = {
     const parameters = services.getParameters() || {};
     const app = createApp(App, {
       type: parameters.type || 'maleShare',
-      zoom: parameters.zoom || null,
+      zoomed: parameters.zoom ? true : false,
     })
 
     app.mount(element.querySelector(`#app-${appName}`))
