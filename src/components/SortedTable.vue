@@ -1,16 +1,16 @@
 <template>
   <table class="sorted-table">
-    <caption>Tabellens beskrivning</caption>
+    <caption v-if="caption">{{ caption }}</caption>
     <thead>
       <tr :class="{ ascending: sortAsc }">
         <th @click="handleSort('name')" class="sort" :class="[ sortBy === 'namn' ? 'active' : '']">Kommun</th>
-        <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">Värde</th>
+        <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">{{ label }}</th>
       </tr>
     </thead>
     <tbody v-if="sortedData">
       <tr v-for="muni in sortedData" :key="muni.id">
         <td :class="[ sortBy === 'namn' ? 'active' : '']">{{ muni.name }}</td>
-        <td :class="[ sortBy === type ? 'active' : '']">{{ formatValue(muni.data[type], 'Inga uppgifter') }}</td>
+        <td :class="[ sortBy === type ? 'active' : '']">{{ formatRelValue(muni.data[type], 'Inga uppgifter') }}</td>
       </tr>
     </tbody>
     <tbody v-else>
@@ -35,12 +35,14 @@ export default {
   props: {
     data: Array,
     type: String,
+    label: String,
+    caption: String,
   },
   data() {
     return {
-      sortBy: 'maleShare',
+      sortBy: 'female_share',
       sortAsc: false,
-      limit: 10,
+      limit: 5,
     }
   },
   computed: {
@@ -53,7 +55,7 @@ export default {
         }
         else sortedMunis = this.data.slice().sort((a, b) => d3.descending(a.data[this.sortBy], b.data[this.sortBy]))
 
-        return sortedMunis.slice(0, this.district ? this.limit : 10);
+        return sortedMunis.slice(0, this.limit);
       }
       return null;
     },
@@ -75,7 +77,8 @@ export default {
       if (value === null) {
         return 'Inga uppgifter';
       }
-      return value.toLocaleString('sv', {maximumFractionDigits: 1, minimumFractionDigits: 1});
+      const relValue = (value * 100).toLocaleString('sv', {maximumFractionDigits: 1, minimumFractionDigits: 1})
+      return `${relValue} %`;
     },
   },
 }

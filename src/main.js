@@ -10,7 +10,7 @@ const eventHandlers = {
 
     const parameters = services.getParameters() || {};
     const app = createApp(App, {
-      type: parameters.type || 'maleShare',
+      type: parameters.type || 'representation',
       zoomed: parameters.zoom ? true : false,
     })
 

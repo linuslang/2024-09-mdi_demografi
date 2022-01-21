@@ -1,13 +1,19 @@
 <template>
+  <ToolTip
+    v-if="selected"
+    :item="selected"
+    :x="toolTipX"
+    :y="toolTipY"
+    :type="type"
+    :parseNo="parseNo"
+  />
   <svg role="group" xmlns="http://www.w3.org/2000/svg" :viewBox="viewBox" class="election-map">
     <g class="paths" v-if="paths">
-      <path
-        v-for="path in paths"
-        :d="path.d"
+      <MapPath v-for="path in paths" :path="path"
+        :d="path.d" :key="path.id"
         :fill="getFill(path.data)"
-        :key="path.id"
-        @click="onClick(path.id)"
-      />
+        @hover-start="showToolTip"
+        @hover-end="hideToolTip" />
       <path
         :d="selectedPath.d"
         fill="none"
@@ -22,7 +28,7 @@
     />
     <MapLegend :title="title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" />
   </svg>
-  <SortedTable :data="paths" :type="type" />
+  <SortedTable :data="paths" :label="factor.label" :type="type" />
   <pre v-if="error">{{ error }}</pre>
 </template>
 
@@ -37,11 +43,48 @@ const d3 = Object.assign(
 import * as topojson from 'topojson-client'
 
 import data from './data/data.json'
+import muniData from './data/munidata.json'
+import hvaData from './data/hvadata.json'
 import parties from './data/parties.json'
 import partiesObjects from './data/partiesObjects.json'
 
 import MapLegend from './components/MapLegend.vue'
+import MapPath from './components/MapPath.vue'
 import SortedTable from './components/SortedTable.vue'
+import ToolTip from './components/ToolTip.vue'
+
+const factors = {
+  representation: {
+    title: null,
+    domain: [0, 0.75, 1.5],
+    colors: ['#f96700', '#ffad82', '#eeeeee', '#009ba1'],
+    ranges: [
+      'Inga mandat',
+      'Låg representation',
+      'Jämn fördelning',
+      'Hög representation',
+    ],
+  },
+  female_share: {
+    title: null,
+    label: 'Andel kvinnor',
+    domain: [0.4, 0.45, 0.55, 0.6],
+    colors: ['#f96700', '#ffad82', '#eeeeee', '#93c5c7', '#009ba1'],
+    ranges: [
+      '> 60 % män',
+      '> 55 % män',
+      'Jämn fördelning',
+      '> 55 % kvinnor',
+      '> 60 % kvinnor',
+    ],
+  },
+  age: {
+    title: 'Medelålder',
+    label: 'Medelålder',
+    domain: [41.5, 59.4],
+    colors: ['#e2f7ff', '#000a47'],
+  },
+}
 
 export default {
   name: 'App',
@@ -51,25 +94,23 @@ export default {
   },
   components: {
     MapLegend,
+    MapPath,
     SortedTable,
+    ToolTip,
   },
   data() {
     return {
-      width: 400,
+      width: 420,
       features: null,
       error: false,
       data,
+      muniData,
+      hvaData,
       parties,
       partiesObjects,
       selected: null,
-      selectedParty: {
-        "name_fi": "SDP",
-        "name_sv": "Socialdemokraterna",
-        "short_name_fi": "SDP",
-        "short_name_sv": "SDP",
-        "color": "#FF3333",
-        "pid": "1"
-      },
+      toolTipX: null,
+      toolTipY: null,
     }
   },
   watch: {
@@ -81,69 +122,29 @@ export default {
     height() {
       return this.zoomed ? 500 : 720;
     },
-    domain() {
-      switch(this.type) {
-        case 'age':
-          return [41.5, 59.4];
-        case 'maleShare':
-          return [0.4, 0.45, 0.55, 0.6];
-        case 'shareNew':
-          return [0.4, 0.5, 0.6];
-        default:
-          return [-15, 0, 15];
-      }
+    factor() {
+      return factors[this.type];
     },
     title() {
-      if (this.type === 'age') {
-        return 'Medelålder';
-      }
-      return false;
+      return factors[this.type].title;
     },
     subtitle() {
       return false;
     },
     colors() {
-      switch(this.type) {
-        case 'age':
-          return ['#e2f7ff', '#000a47'];
-        case 'maleShare':
-          return ['#f96700', '#ffad82', '#eeeeee', '#93c5c7', '#009ba1'];
-        case 'partiesChange':
-          return ['#ea4d5e', '#eeeeee', '#85b074'];
-        case 'shareNew':
-          return ['#7333d5', '#b678ab', '#dfbb78', '#f9ff00'];
-        default:
-          return ['#e2f7ff', '#000a47'];
-      }
+      return factors[this.type].colors;
     },
     ranges() {
-      if (this.type === 'maleShare') {
-        return [
-          '> 60 % kvinnor',
-          '> 55 % kvinnor',
-          'Jämn fördelning',
-          '> 55 % män',
-          '> 60 % män',
-        ];
-      }
-      else if (this.type === 'shareNew') {
-        return [
-          '< 40 %',
-          '40 - 50 %',
-          '50 - 60 %',
-          '> 60 %',
-        ];
-      }
-      else return null;
+      return factors[this.type].ranges || null;
     },
     colorScale() {
-      if (this.type === 'maleShare' || this.type === 'shareNew') {
+      if (this.type === 'female_share' || this.type === 'representation') {
         return d3.scaleThreshold()
-          .domain(this.domain)
+          .domain(this.factor.domain)
           .range(this.colors);
       }
       return d3.scaleLinear()
-        .domain(this.domain)
+        .domain(this.factor.domain)
         .range(this.colors);
     },
     projection() {
@@ -160,7 +161,17 @@ export default {
     paths() {
       if (this.features) {
         return this.features.features.map((d) => {
-          const data = this.data[d.properties.id];
+          let data;
+          if (this.type === 'representation') {
+            const muniData = this.muniData[d.properties.id];
+            const hvaData = this.hvaData[d.properties.hva_id];
+            data = {
+              representation: muniData ? ((muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population)) : -1,
+            }
+          }
+          else {
+            data = this.data.find(datum => datum.constituency_id = d.properties.hva_id) || {};
+          }
 
           return {
             id: d.properties.id,
@@ -174,23 +185,34 @@ export default {
     },
     selectedPath() {
       if (this.paths && this.selected) {
-        return this.paths.find((d) => d.id === this.selected);
+        return this.paths.find((d) => d.id === this.selected.id);
       }
       return null;
     },
   },
   mounted() {
     this.initMap();
+    window.addEventListener('scroll', this.hideToolTip);
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.hideToolTip);
   },
   methods: {
+    showToolTip(data) {
+      this.selected = data.item;
+      this.toolTipX = data.mouseX;
+      this.toolTipY = data.mouseY;
+    },
+    hideToolTip() {
+      this.selected = null;
+    },
     initMap() {
       const url = `${process.env.BASE_URL}data/kommuner-omraden.json`;
 
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          //const featureType = this.type === 'representation' ? 'munis' : 'hva';
-          const featureType = 'munis';
+          const featureType = this.type === 'representation' ? 'munis' : 'hva';
           this.features = topojson.feature(data, data.objects[featureType]);
         })
         .catch((error) => {
@@ -198,16 +220,8 @@ export default {
         });
     },
     getFill(data) {
-      if (!data) return '#555';
-      if (this.type === 'partiesChange') {
-        return data[this.type] ? this.colorScale(data.partiesChange[this.selectedParty.pid]) : '#555';
-      }
-      if (this.type === 'biggestParty') {
-        const pid = data[`biggestParty2021`];
-        const party = this.partiesObjects[pid];
-        return party ? party.color : '#9CACB5'; 
-      }
-      return data[this.type] ? this.colorScale(data[this.type]) : '#555';
+      if (!data) return 'transparent';
+      return data[this.type] ? this.colorScale(data[this.type]) : 'transparent';
     },
     onClick(id) {
       this.selected = id;
@@ -226,7 +240,7 @@ export default {
         }
       }
       return `${prefix}${value.toLocaleString('sv', { maximumFractionDigits: decimals })}`;
-    }
+    },
   }
 }
 </script>
@@ -256,6 +270,7 @@ export default {
       .active {
         stroke-width: 3px;
         stroke: #ffaa00;
+        pointer-events: none;
       }
     }
   }

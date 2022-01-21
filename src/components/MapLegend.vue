@@ -1,6 +1,6 @@
 <template>
   <g class="map-legend" :transform="margin">
-    <rect class="background" :height="colors.length * 20 + 60" width="140" />
+    <rect class="background" :height="colors.length * 25 + 60" width="140" />
     <text y="20" x="10" class="map-label" v-if="title">{{ title }}</text>
     <text y="35" x="10" v-if="subtitle">{{ subtitle }}</text>
     <g
@@ -8,8 +8,8 @@
       :key="index"
       :transform="getTranslate(index)"
     >
-      <rect :fill="color" width="15" height="20" />
-      <text x="24" y="11" alignment-baseline="middle">
+      <rect :fill="color" width="15" height="25" />
+      <text x="24" y="14" alignment-baseline="middle" v-if="ranges">
         {{ ranges[index] }}
       </text>
     </g>
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     getTranslate(index) {
-      return `translate(10, ${50 + index * 20})`
+      return `translate(10, ${50 + index * 25})`
     },
   },
   created() {
@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss">
 .map-legend {
-  font-size: 14px;
+  font-size: 15px;
 
   .map-label {
     font-weight: bold;
