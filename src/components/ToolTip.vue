@@ -3,6 +3,9 @@
     <p>
       <strong>{{ name }}</strong><br>
     </p>
+    <p v-if="type === 'swedish_share'">
+      Svenskspråkiga ledamöter: {{ parseNo(item.data.swedish_share, 0) }} %<br>
+    </p>
     <p v-if="type === 'mean_age'">
       Medelålder: {{ parseNo(item.data.mean_age) }} år<br>
     </p>

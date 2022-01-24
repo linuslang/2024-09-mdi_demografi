@@ -56,7 +56,7 @@ const factors = {
   representation: {
     title: null,
     label: 'Representation',
-    domain: [0, 0.75, 1.5],
+    domain: [0.001, 0.75, 1.5],
     colors: ['#555', '#FF4D5B', '#eeeeee', '#98E2ED'],
     ranges: [
       'Inga mandat',
@@ -68,12 +68,14 @@ const factors = {
   female_share: {
     title: null,
     label: 'Andel kvinnor',
-    domain: [40, 45, 55, 60],
-    colors: ['#009ba1','#93c5c7', '#eeeeee', '#ffad82', '#f96700'],
+    domain: [40, 45, 47.5, 52.5, 55, 60],
+    colors: ['#009ba1', '#72b7ba', '#b2d2d4', '#eeeeee', '#fec2a4', '#ff975e', '#f96700'],
     ranges: [
       '> 60 % män',
       '> 55 % män',
+      '> 52,5 % män',
       'Jämn fördelning',
+      '> 52,5 % kvinnor',
       '> 55 % kvinnor',
       '> 60 % kvinnor',
     ],
@@ -81,9 +83,9 @@ const factors = {
   mean_age: {
     title: 'Medelålder',
     label: 'Medelålder',
-    domain: [46, 55],
+    domain: [45, 55],
     colors: ['#e2f7ff', '#000a47'],
-    ranges: [46, 55],
+    ranges: [45, 55],
   },
   swedish_share: {
     title: 'Andel svenskspråkiga',
@@ -183,7 +185,7 @@ export default {
             result.push({
               id: d.properties.id || d.properties.hva_id,
               d: this.path(d.geometry),
-              name: d.properties.name_sv,
+              name: this.type === 'representation' ? d.properties.name_sv : d.properties.short_name_sv,
               data,
             });
           }
@@ -331,35 +333,55 @@ export default {
   }
 }
 
-.party-checkboxes {
-  align-items: center;
+.yddviz-button {
   border: none;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  padding: 0px;
-  margin-bottom: 1em;
+  position: relative;
+  display: inline-flex;
+  border: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: 14px;
+  padding: 13px 22px 14px;
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 400px;
+  font-size: 12px;
+  padding: 7px 20px;
+  min-height: 32px;
+  min-width: 32px;
+  cursor: pointer;
+  color: #131415;
+  background-color: transparent;
+  box-shadow: 0 0 0 2px inset #131415;
 
-  legend {
-    margin-bottom: .5em;
+  &:hover, &:active {
+    background: rgba(0, 0, 0, 0.09);
   }
-}
 
-.checkbox-wrapper {
-  margin: 0px 6px 12px 0px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  input {
+  &:before {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 666px;
     opacity: 0;
-    height: 0px;
-    width: 0px;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px black;
     pointer-events: none;
-    margin: 0px !important;
-    padding: 0px !important;
+    box-sizing: border-box;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible:before {
+    opacity: 1;
   }
 }
 </style>

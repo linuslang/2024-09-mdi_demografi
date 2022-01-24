@@ -3,7 +3,9 @@
     <caption v-if="caption">{{ caption }}</caption>
     <thead>
       <tr :class="{ ascending: sortAsc }">
-        <th @click="handleSort('name')" class="sort" :class="[ sortBy === 'namn' ? 'active' : '']">Kommun</th>
+        <th @click="handleSort('name')" class="sort" :class="[ sortBy === 'namn' ? 'active' : '']">
+          <template v-if="type === 'representation'">Kommun</template><template v-else>Välfärdsområde</template>
+        </th>
         <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">{{ label }}</th>
       </tr>
     </thead>
@@ -20,6 +22,7 @@
       </tr>
     </tbody>
   </table>
+  <button class="yddviz-button" v-if="data && limit < data.length" @click="limit += 10">Visa fler</button>
 </template>
 
 <script>
@@ -42,7 +45,7 @@ export default {
     return {
       sortBy: null,
       sortAsc: false,
-      limit: 10,
+      limit: 5,
     }
   },
   created() {
@@ -74,7 +77,7 @@ export default {
       if (value === null) {
         return fallback;
       }
-      return value.toLocaleString('sv');
+      return value.toLocaleString('sv', {maximumFractionDigits: 1, minimumFractionDigits: 1});
     },
     formatRelValue(value) {
       if (value === null) {
