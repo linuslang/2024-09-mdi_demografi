@@ -3,12 +3,16 @@
     <p>
       <strong>{{ name }}</strong><br>
     </p>
+    <p v-if="type === 'mean_age'">
+      Medelålder: {{ parseNo(item.data.mean_age) }} år<br>
+    </p>
     <p v-if="type === 'female_share'">
-      Andel män: {{ parseNo((1 - item.data.female_share) * 100) }} %<br>
-      Andel kvinnor: {{ parseNo(item.data.female_share * 100) }} %
+      Andel män: {{ parseNo(100 - item.data.female_share) }} %<br>
+      Andel kvinnor: {{ parseNo(item.data.female_share) }} %
     </p>
     <p v-if="type === 'representation'">
-      {{ parseNo(item.data.representation) || 'Inga mandat' }}
+      <span v-if="item.data.representation">{{ parseNo(item.data.representation) }}</span>
+      <span v-else>Inga mandat</span>
     </p>
   </div>
 </template>

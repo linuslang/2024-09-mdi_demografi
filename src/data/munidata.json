@@ -1,722 +1,1170 @@
 {
   "102": {
-    "seats": 1
+    "seats": 3,
+    "representation": 0.94253
+  },
+  "103": {
+    "seats": 0,
+    "representation": 0
   },
   "105": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.10472
   },
   "106": {
-    "seats": 18
+    "seats": 17,
+    "representation": 1.05441
+  },
+  "108": {
+    "seats": 1,
+    "representation": 0.63983
   },
   "109": {
-    "seats": 23
+    "seats": 25,
+    "representation": 1.0653
   },
   "111": {
-    "seats": 3
+    "seats": 5,
+    "representation": 0.80613
   },
   "139": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "140": {
-    "seats": 6
+    "seats": 6,
+    "representation": 1.02198
   },
   "142": {
-    "seats": 2
+    "seats": 3,
+    "representation": 1.35042
+  },
+  "143": {
+    "seats": 0,
+    "representation": 0
   },
   "145": {
-    "seats": 6
+    "seats": 3,
+    "representation": 0.79472
   },
   "146": {
-    "seats": 5
+    "seats": 3,
+    "representation": 1.75099
   },
   "148": {
-    "seats": 2
+    "seats": 3,
+    "representation": 1.30909
+  },
+  "149": {
+    "seats": 1,
+    "representation": 1.12722
   },
   "151": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "152": {
-    "seats": 2
+    "seats": 2,
+    "representation": 1.45685
   },
   "153": {
-    "seats": 8
+    "seats": 11,
+    "representation": 0.90751
   },
   "165": {
-    "seats": 9
+    "seats": 5,
+    "representation": 0.89029
   },
   "167": {
-    "seats": 25
+    "seats": 23,
+    "representation": 0.82864
   },
   "169": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "171": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "172": {
-    "seats": 2
+    "seats": 2,
+    "representation": 1.83894
   },
   "176": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.61228
+  },
+  "177": {
+    "seats": 0,
+    "representation": 0
   },
   "178": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.37916
   },
   "179": {
-    "seats": 40
+    "seats": 36,
+    "representation": 0.99174
+  },
+  "181": {
+    "seats": 0,
+    "representation": 0
   },
   "182": {
-    "seats": 4
+    "seats": 6,
+    "representation": 1.19203
   },
   "186": {
-    "seats": 13
+    "seats": 16,
+    "representation": 1.03974
   },
   "202": {
-    "seats": 4
+    "seats": 5,
+    "representation": 0.87889
   },
   "204": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "205": {
-    "seats": 23
+    "seats": 26,
+    "representation": 0.86364
   },
   "208": {
-    "seats": 2
+    "seats": 2,
+    "representation": 0.8449
   },
   "211": {
-    "seats": 3
+    "seats": 4,
+    "representation": 0.8218
   },
   "213": {
-    "seats": 2
+    "seats": 2,
+    "representation": 0.84683
   },
   "214": {
-    "seats": 5
+    "seats": 6,
+    "representation": 1.46824
   },
   "216": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "217": {
-    "seats": 5
+    "seats": 5,
+    "representation": 1.06187
+  },
+  "218": {
+    "seats": 1,
+    "representation": 2.69824
   },
   "224": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.68974
+  },
+  "226": {
+    "seats": 1,
+    "representation": 1.0241
   },
   "230": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
+  },
+  "231": {
+    "seats": 0,
+    "representation": 0
   },
   "232": {
-    "seats": 4
+    "seats": 2,
+    "representation": 0.50077
   },
   "233": {
-    "seats": 5
+    "seats": 7,
+    "representation": 1.46948
   },
   "235": {
-    "seats": 2
+    "seats": 2,
+    "representation": 1.17861
   },
   "236": {
-    "seats": 6
+    "seats": 3,
+    "representation": 0.81765
   },
   "239": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.66963
   },
   "240": {
-    "seats": 8
+    "seats": 6,
+    "representation": 0.87909
   },
   "241": {
-    "seats": 5
+    "seats": 2,
+    "representation": 0.75008
   },
   "244": {
-    "seats": 6
+    "seats": 4,
+    "representation": 1.11478
   },
   "245": {
-    "seats": 14
+    "seats": 9,
+    "representation": 0.96437
   },
   "249": {
-    "seats": 3
+    "seats": 3,
+    "representation": 1.24952
   },
   "250": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
+  },
+  "256": {
+    "seats": 0,
+    "representation": 0
   },
   "257": {
-    "seats": 7
+    "seats": 8,
+    "representation": 1.19714
   },
   "260": {
-    "seats": 2
+    "seats": 4,
+    "representation": 1.1162
   },
   "261": {
-    "seats": 3
+    "seats": 2,
+    "representation": 0.93049
   },
   "263": {
-    "seats": 5
+    "seats": 4,
+    "representation": 1.83246
+  },
+  "265": {
+    "seats": 0,
+    "representation": 0
   },
   "271": {
-    "seats": 3
+    "seats": 4,
+    "representation": 1.78068
   },
   "272": {
-    "seats": 40
+    "seats": 40,
+    "representation": 0.96487
   },
   "273": {
-    "seats": 4
+    "seats": 1,
+    "representation": 0.76288
+  },
+  "275": {
+    "seats": 0,
+    "representation": 0
   },
   "276": {
-    "seats": 6
+    "seats": 7,
+    "representation": 1.30596
   },
   "280": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.44097
+  },
+  "284": {
+    "seats": 0,
+    "representation": 0
   },
   "285": {
-    "seats": 18
+    "seats": 18,
+    "representation": 0.96136
   },
   "286": {
-    "seats": 25
+    "seats": 29,
+    "representation": 0.9857
   },
   "287": {
-    "seats": 2
+    "seats": 2,
+    "representation": 0.93065
   },
   "288": {
-    "seats": 2
+    "seats": 3,
+    "representation": 1.39336
   },
   "290": {
-    "seats": 8
+    "seats": 9,
+    "representation": 1.35934
+  },
+  "291": {
+    "seats": 0,
+    "representation": 0
   },
   "297": {
-    "seats": 29
+    "seats": 33,
+    "representation": 0.98773
+  },
+  "300": {
+    "seats": 1,
+    "representation": 0.92156
   },
   "301": {
-    "seats": 8
+    "seats": 5,
+    "representation": 0.79605
+  },
+  "304": {
+    "seats": 0,
+    "representation": 0
   },
   "305": {
-    "seats": 5
+    "seats": 3,
+    "representation": 1.033
   },
   "309": {
-    "seats": 4
+    "seats": 2,
+    "representation": 0.8461
+  },
+  "312": {
+    "seats": 1,
+    "representation": 3.06752
+  },
+  "316": {
+    "seats": 1,
+    "representation": 0.68936
+  },
+  "317": {
+    "seats": 1,
+    "representation": 2.06397
   },
   "320": {
-    "seats": 1
+    "seats": 3,
+    "representation": 1.2492
+  },
+  "322": {
+    "seats": 0,
+    "representation": 0
   },
   "398": {
-    "seats": 40
+    "seats": 42,
+    "representation": 1.04391
   },
   "399": {
-    "seats": 3
+    "seats": 2,
+    "representation": 0.74536
   },
   "400": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.71962
   },
   "402": {
-    "seats": 3
+    "seats": 4,
+    "representation": 1.53795
   },
   "403": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.11343
   },
   "405": {
-    "seats": 39
+    "seats": 33,
+    "representation": 0.97699
   },
   "407": {
-    "seats": 3
+    "seats": 1,
+    "representation": 0.63538
   },
   "408": {
-    "seats": 1
+    "seats": 6,
+    "representation": 1.37407
   },
   "410": {
-    "seats": 7
+    "seats": 3,
+    "representation": 0.6297
   },
   "416": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.72578
   },
   "418": {
-    "seats": 4
+    "seats": 4,
+    "representation": 1.11103
   },
   "420": {
-    "seats": 1
+    "seats": 3,
+    "representation": 1.14807
   },
   "421": {
-    "seats": 2
+    "seats": 1,
+    "representation": 1.59604
   },
   "422": {
-    "seats": 2
+    "seats": 4,
+    "representation": 1.03436
   },
   "423": {
-    "seats": 4
+    "seats": 2,
+    "representation": 0.60495
   },
   "425": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.51166
   },
   "426": {
-    "seats": 4
+    "seats": 5,
+    "representation": 1.1555
   },
   "430": {
-    "seats": 4
+    "seats": 5,
+    "representation": 1.93206
   },
   "433": {
-    "seats": 1
+    "seats": 5,
+    "representation": 1.84078
   },
   "434": {
-    "seats": 11
+    "seats": 7,
+    "representation": 0.79059
+  },
+  "435": {
+    "seats": 0,
+    "representation": 0
   },
   "436": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "440": {
-    "seats": 3
+    "seats": 3,
+    "representation": 1.61543
   },
   "441": {
-    "seats": 2
+    "seats": 2,
+    "representation": 0.94704
   },
   "444": {
-    "seats": 3
+    "seats": 8,
+    "representation": 1.04571
   },
   "445": {
-    "seats": 4
+    "seats": 4,
+    "representation": 1.61369
   },
   "475": {
-    "seats": 4
+    "seats": 2,
+    "representation": 1.09335
   },
   "480": {
-    "seats": 1
+    "seats": 1,
+    "representation": 3.04838
   },
   "481": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.63855
+  },
+  "483": {
+    "seats": 0,
+    "representation": 0
+  },
+  "484": {
+    "seats": 1,
+    "representation": 1.01826
   },
   "489": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "491": {
-    "seats": 25
+    "seats": 23,
+    "representation": 0.9838
   },
   "494": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.17676
   },
   "495": {
-    "seats": 3
+    "seats": 0,
+    "representation": 0
   },
   "498": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "499": {
-    "seats": 8
+    "seats": 4,
+    "representation": 0.61275
   },
   "500": {
-    "seats": 1
+    "seats": 2,
+    "representation": 0.76964
+  },
+  "503": {
+    "seats": 2,
+    "representation": 1.59417
   },
   "504": {
-    "seats": 2
+    "seats": 2,
+    "representation": 1.78014
   },
   "505": {
-    "seats": 7
+    "seats": 8,
+    "representation": 1.112
   },
   "507": {
-    "seats": 3
+    "seats": 1,
+    "representation": 0.39626
   },
   "508": {
-    "seats": 3
+    "seats": 1,
+    "representation": 0.68421
   },
   "529": {
-    "seats": 6
+    "seats": 6,
+    "representation": 1.88203
   },
   "531": {
-    "seats": 3
+    "seats": 0,
+    "representation": 0
   },
   "535": {
-    "seats": 4
+    "seats": 3,
+    "representation": 1.49667
   },
   "536": {
-    "seats": 2
+    "seats": 4,
+    "representation": 0.76788
   },
   "538": {
-    "seats": 2
+    "seats": 1,
+    "representation": 1.29847
   },
   "541": {
-    "seats": 5
+    "seats": 5,
+    "representation": 1.4587
   },
   "543": {
-    "seats": 15
+    "seats": 16,
+    "representation": 1.0586
   },
   "545": {
-    "seats": 5
+    "seats": 5,
+    "representation": 1.55887
   },
   "560": {
-    "seats": 6
+    "seats": 3,
+    "representation": 0.56331
   },
   "561": {
-    "seats": 1
+    "seats": 1,
+    "representation": 4.568
   },
   "562": {
-    "seats": 2
+    "seats": 3,
+    "representation": 2.20417
   },
   "563": {
-    "seats": 3
+    "seats": 2,
+    "representation": 1.46425
   },
   "564": {
-    "seats": 35
+    "seats": 37,
+    "representation": 0.93485
   },
   "576": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.04236
   },
   "577": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.11586
   },
   "578": {
-    "seats": 9
+    "seats": 2,
+    "representation": 0.75094
   },
   "580": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.46213
+  },
+  "581": {
+    "seats": 2,
+    "representation": 2.08387
+  },
+  "583": {
+    "seats": 0,
+    "representation": 0
   },
   "584": {
-    "seats": 1
+    "seats": 2,
+    "representation": 0.85169
   },
   "588": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.71969
   },
   "592": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.09489
   },
   "593": {
-    "seats": 6
+    "seats": 7,
+    "representation": 0.90615
+  },
+  "595": {
+    "seats": 2,
+    "representation": 1.66538
   },
   "598": {
-    "seats": 7
+    "seats": 6,
+    "representation": 0.93777
   },
   "599": {
-    "seats": 4
+    "seats": 5,
+    "representation": 1.33342
   },
   "601": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.01016
   },
   "604": {
-    "seats": 4
+    "seats": 4,
+    "representation": 1.33684
   },
   "607": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.6598
   },
   "608": {
-    "seats": 1
+    "seats": 2,
+    "representation": 3.02663
   },
   "609": {
-    "seats": 24
+    "seats": 28,
+    "representation": 1.04459
   },
   "611": {
-    "seats": 3
+    "seats": 2,
+    "representation": 1.13958
   },
   "614": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "615": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.34679
+  },
+  "616": {
+    "seats": 1,
+    "representation": 0.90852
+  },
+  "619": {
+    "seats": 1,
+    "representation": 2.37644
   },
   "620": {
-    "seats": 3
+    "seats": 2,
+    "representation": 0.97523
+  },
+  "623": {
+    "seats": 1,
+    "representation": 1.0525
   },
   "624": {
-    "seats": 4
+    "seats": 2,
+    "representation": 1.07689
+  },
+  "625": {
+    "seats": 1,
+    "representation": 1.71693
   },
   "626": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.0816
   },
   "630": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
+  },
+  "631": {
+    "seats": 0,
+    "representation": 0
   },
   "635": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "636": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.74052
   },
   "638": {
-    "seats": 29
+    "seats": 27,
+    "representation": 0.88828
   },
   "678": {
-    "seats": 4
+    "seats": 5,
+    "representation": 1.0755
   },
   "680": {
-    "seats": 5
+    "seats": 5,
+    "representation": 1.24835
   },
   "681": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.33721
+  },
+  "683": {
+    "seats": 1,
+    "representation": 0.80666
   },
   "684": {
-    "seats": 14
+    "seats": 11,
+    "representation": 0.87965
+  },
+  "686": {
+    "seats": 1,
+    "representation": 1.17853
   },
   "687": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "689": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.36758
+  },
+  "691": {
+    "seats": 0,
+    "representation": 0
   },
   "694": {
-    "seats": 11
+    "seats": 13,
+    "representation": 1.30912
   },
   "697": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.98352
   },
   "698": {
-    "seats": 16
+    "seats": 17,
+    "representation": 0.80128
+  },
+  "700": {
+    "seats": 5,
+    "representation": 2.18529
+  },
+  "702": {
+    "seats": 0,
+    "representation": 0
   },
   "704": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "707": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.68327
   },
   "710": {
-    "seats": 8
+    "seats": 5,
+    "representation": 1.08943
   },
   "729": {
-    "seats": 1
+    "seats": 2,
+    "representation": 0.85816
   },
   "732": {
-    "seats": 3
+    "seats": 1,
+    "representation": 0.87887
   },
   "734": {
-    "seats": 14
+    "seats": 6,
+    "representation": 0.70909
   },
   "738": {
-    "seats": 2
+    "seats": 1,
+    "representation": 2.06566
   },
   "739": {
-    "seats": 2
+    "seats": 2,
+    "representation": 1.29357
   },
   "740": {
-    "seats": 17
+    "seats": 16,
+    "representation": 1.1018
+  },
+  "742": {
+    "seats": 1,
+    "representation": 2.96761
   },
   "743": {
-    "seats": 22
+    "seats": 17,
+    "representation": 0.86333
   },
   "746": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.08365
+  },
+  "747": {
+    "seats": 0,
+    "representation": 0
   },
   "748": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.04059
   },
   "749": {
-    "seats": 7
+    "seats": 4,
+    "representation": 0.67725
   },
   "751": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.03005
   },
   "753": {
-    "seats": 12
+    "seats": 15,
+    "representation": 1.15183
   },
   "755": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "758": {
-    "seats": 3
+    "seats": 2,
+    "representation": 0.72449
+  },
+  "759": {
+    "seats": 1,
+    "representation": 1.62271
   },
   "761": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.7048
   },
   "762": {
-    "seats": 2
+    "seats": 1,
+    "representation": 0.93675
   },
   "765": {
-    "seats": 7
+    "seats": 9,
+    "representation": 1.06124
+  },
+  "768": {
+    "seats": 2,
+    "representation": 1.8124
   },
   "777": {
-    "seats": 7
+    "seats": 8,
+    "representation": 1.27958
   },
   "778": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.51912
   },
   "781": {
-    "seats": 3
+    "seats": 2,
+    "representation": 1.64263
   },
   "783": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.46975
   },
   "785": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "790": {
-    "seats": 4
+    "seats": 5,
+    "representation": 1.37585
+  },
+  "791": {
+    "seats": 1,
+    "representation": 1.0068
   },
   "831": {
-    "seats": 3
+    "seats": 2,
+    "representation": 0.92965
+  },
+  "832": {
+    "seats": 1,
+    "representation": 1.33768
+  },
+  "833": {
+    "seats": 1,
+    "representation": 3.67312
   },
   "834": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "837": {
-    "seats": 41
+    "seats": 39,
+    "representation": 1.07098
   },
   "844": {
-    "seats": 1
+    "seats": 1,
+    "representation": 2.39391
   },
   "845": {
-    "seats": 1
+    "seats": 2,
+    "representation": 2.0474
   },
   "846": {
-    "seats": 3
+    "seats": 1,
+    "representation": 0.65214
   },
   "848": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.64356
   },
   "849": {
-    "seats": 1
+    "seats": 2,
+    "representation": 0.77703
   },
   "850": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "851": {
-    "seats": 6
+    "seats": 10,
+    "representation": 1.39485
   },
   "853": {
-    "seats": 22
+    "seats": 30,
+    "representation": 0.94043
   },
   "854": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.81254
+  },
+  "857": {
+    "seats": 1,
+    "representation": 1.47885
   },
   "858": {
-    "seats": 13
+    "seats": 10,
+    "representation": 0.74487
   },
   "859": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.58666
   },
   "886": {
-    "seats": 4
+    "seats": 3,
+    "representation": 0.73545
   },
   "887": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "889": {
-    "seats": 1
+    "seats": 0,
+    "representation": 0
   },
   "890": {
-    "seats": 1
+    "seats": 2,
+    "representation": 4.91275
   },
   "892": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.08365
   },
   "893": {
-    "seats": 2
+    "seats": 3,
+    "representation": 1.19532
   },
   "895": {
-    "seats": 1
+    "seats": 3,
+    "representation": 1.18878
   },
   "905": {
-    "seats": 16
+    "seats": 20,
+    "representation": 0.88228
   },
   "908": {
-    "seats": 1
+    "seats": 5,
+    "representation": 1.59364
   },
   "915": {
-    "seats": 4
+    "seats": 5,
+    "representation": 0.88718
+  },
+  "918": {
+    "seats": 0,
+    "representation": 0
   },
   "921": {
-    "seats": 3
+    "seats": 1,
+    "representation": 1.82457
   },
   "922": {
-    "seats": 2
+    "seats": 1,
+    "representation": 1.51554
   },
   "924": {
-    "seats": 2
+    "seats": 5,
+    "representation": 1.87984
   },
   "925": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.02159
   },
   "927": {
-    "seats": 7
+    "seats": 6,
+    "representation": 1.23415
+  },
+  "931": {
+    "seats": 2,
+    "representation": 1.29604
+  },
+  "934": {
+    "seats": 1,
+    "representation": 1.16982
+  },
+  "935": {
+    "seats": 1,
+    "representation": 0.89392
+  },
+  "936": {
+    "seats": 0,
+    "representation": 0
   },
   "946": {
-    "seats": 2
+    "seats": 3,
+    "representation": 1.39947
   },
   "976": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.5395
   },
   "977": {
-    "seats": 3
+    "seats": 3,
+    "representation": 1.02686
   },
   "980": {
-    "seats": 3
+    "seats": 5,
+    "representation": 0.9922
   },
   "981": {
-    "seats": 2
+    "seats": 0,
+    "representation": 0
   },
   "989": {
-    "seats": 1
+    "seats": 1,
+    "representation": 0.58978
   },
   "992": {
-    "seats": 1
+    "seats": 5,
+    "representation": 1.0634
   },
-  "005": {
-    "seats": 2
+  "052": {
+    "seats": 2,
+    "representation": 2.70497
   },
   "009": {
-    "seats": 1
-  },
-  "010": {
-    "seats": 3
-  },
-  "016": {
-    "seats": 3
+    "seats": 1,
+    "representation": 2.08119
   },
   "018": {
-    "seats": 2
-  },
-  "019": {
-    "seats": 1
-  },
-  "020": {
-    "seats": 7
+    "seats": 6,
+    "representation": 2.04837
   },
   "046": {
-    "seats": 1
-  },
-  "049": {
-    "seats": 47
-  },
-  "050": {
-    "seats": 7
-  },
-  "051": {
-    "seats": 4
-  },
-  "061": {
-    "seats": 3
-  },
-  "069": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.64294
   },
   "071": {
-    "seats": 1
+    "seats": 2,
+    "representation": 1.57143
   },
-  "072": {
-    "seats": 1
+  "069": {
+    "seats": 2,
+    "representation": 1.51924
   },
-  "074": {
-    "seats": 2
+  "016": {
+    "seats": 4,
+    "representation": 1.48018
+  },
+  "005": {
+    "seats": 4,
+    "representation": 1.38307
+  },
+  "050": {
+    "seats": 5,
+    "representation": 1.35939
+  },
+  "051": {
+    "seats": 4,
+    "representation": 1.32119
   },
   "075": {
-    "seats": 10
-  },
-  "077": {
-    "seats": 1
-  },
-  "078": {
-    "seats": 2
-  },
-  "079": {
-    "seats": 1
-  },
-  "081": {
-    "seats": 3
+    "seats": 9,
+    "representation": 1.24947
   },
   "082": {
-    "seats": 6
+    "seats": 4,
+    "representation": 1.23171
   },
-  "086": {
-    "seats": 2
+  "010": {
+    "seats": 4,
+    "representation": 1.14959
   },
-  "090": {
-    "seats": 1
-  },
-  "092": {
-    "seats": 55
+  "074": {
+    "seats": 1,
+    "representation": 1.04473
   },
   "097": {
-    "seats": 1
+    "seats": 1,
+    "representation": 1.04322
+  },
+  "061": {
+    "seats": 6,
+    "representation": 1.03255
   },
   "098": {
-    "seats": 8
+    "seats": 8,
+    "representation": 1.02609
+  },
+  "092": {
+    "seats": 60,
+    "representation": 1.00557
+  },
+  "049": {
+    "seats": 47,
+    "representation": 0.9628
+  },
+  "090": {
+    "seats": 1,
+    "representation": 0.86728
+  },
+  "077": {
+    "seats": 1,
+    "representation": 0.82622
+  },
+  "078": {
+    "seats": 1,
+    "representation": 0.74583
+  },
+  "079": {
+    "seats": 1,
+    "representation": 0.4545
+  },
+  "086": {
+    "seats": 1,
+    "representation": 0.35366
+  },
+  "072": {
+    "seats": 0,
+    "representation": 0
+  },
+  "081": {
+    "seats": 0,
+    "representation": 0
+  },
+  "020": {
+    "seats": 0,
+    "representation": 0
+  },
+  "019": {
+    "seats": 0,
+    "representation": 0
+  },
+  "047": {
+    "seats": 0,
+    "representation": 0
   }
 }

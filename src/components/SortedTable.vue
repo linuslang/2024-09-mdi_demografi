@@ -10,7 +10,7 @@
     <tbody v-if="sortedData">
       <tr v-for="muni in sortedData" :key="muni.id">
         <td :class="[ sortBy === 'namn' ? 'active' : '']">{{ muni.name }}</td>
-        <td :class="[ sortBy === type ? 'active' : '']">{{ formatRelValue(muni.data[type], 'Inga uppgifter') }}</td>
+        <td :class="[ sortBy === type ? 'active' : '']">{{ formatValue(muni.data[type], 'Inga uppgifter') }}</td>
       </tr>
     </tbody>
     <tbody v-else>
@@ -40,10 +40,13 @@ export default {
   },
   data() {
     return {
-      sortBy: 'female_share',
+      sortBy: null,
       sortAsc: false,
-      limit: 5,
+      limit: 10,
     }
+  },
+  created() {
+    this.sortBy = this.type;
   },
   computed: {
     sortedData() {

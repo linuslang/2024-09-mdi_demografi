@@ -26,7 +26,7 @@
       xlink:href="./assets/loading.svg"
       :width="width" :height="height"
     />
-    <MapLegend :title="title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" />
+    <MapLegend :title="factor.title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" :type="type" />
   </svg>
   <SortedTable :data="paths" :label="factor.label" :type="type" />
   <pre v-if="error">{{ error }}</pre>
@@ -44,7 +44,6 @@ import * as topojson from 'topojson-client'
 
 import data from './data/data.json'
 import muniData from './data/munidata.json'
-import hvaData from './data/hvadata.json'
 import parties from './data/parties.json'
 import partiesObjects from './data/partiesObjects.json'
 
@@ -56,8 +55,9 @@ import ToolTip from './components/ToolTip.vue'
 const factors = {
   representation: {
     title: null,
+    label: 'Representation',
     domain: [0, 0.75, 1.5],
-    colors: ['#f96700', '#ffad82', '#eeeeee', '#009ba1'],
+    colors: ['#555', '#FF4D5B', '#eeeeee', '#98E2ED'],
     ranges: [
       'Inga mandat',
       'Låg representation',
@@ -68,8 +68,8 @@ const factors = {
   female_share: {
     title: null,
     label: 'Andel kvinnor',
-    domain: [0.4, 0.45, 0.55, 0.6],
-    colors: ['#f96700', '#ffad82', '#eeeeee', '#93c5c7', '#009ba1'],
+    domain: [40, 45, 55, 60],
+    colors: ['#009ba1','#93c5c7', '#eeeeee', '#ffad82', '#f96700'],
     ranges: [
       '> 60 % män',
       '> 55 % män',
@@ -78,11 +78,25 @@ const factors = {
       '> 60 % kvinnor',
     ],
   },
-  age: {
+  mean_age: {
     title: 'Medelålder',
     label: 'Medelålder',
-    domain: [41.5, 59.4],
+    domain: [46, 55],
     colors: ['#e2f7ff', '#000a47'],
+    ranges: [46, 55],
+  },
+  swedish_share: {
+    title: 'Andel svenskspråkiga',
+    label: 'Andel svenskspråkiga',
+    domain: [0, 10, 20, 50],
+    colors: ['#eee', '#FFDB5E', '#EFB42C', '#DC9526', '#AE5D1F'],
+    ranges: [
+      'Inga',
+      '< 10 %',
+      '10 - 20 %',
+      '20 - 50 %',
+      '> 50 %',
+    ],
   },
 }
 
@@ -105,7 +119,6 @@ export default {
       error: false,
       data,
       muniData,
-      hvaData,
       parties,
       partiesObjects,
       selected: null,
@@ -124,9 +137,6 @@ export default {
     },
     factor() {
       return factors[this.type];
-    },
-    title() {
-      return factors[this.type].title;
     },
     subtitle() {
       return false;
@@ -160,26 +170,25 @@ export default {
     },
     paths() {
       if (this.features) {
-        return this.features.features.map((d) => {
-          let data;
-          if (this.type === 'representation') {
-            const muniData = this.muniData[d.properties.id];
-            const hvaData = this.hvaData[d.properties.hva_id];
-            data = {
-              representation: muniData ? ((muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population)) : -1,
+        return this.features.features.reduce((result, d) => {
+          if (d.properties.hva_id) {
+            let data;
+            if (this.type === 'representation') {
+              data = this.muniData[d.properties.id];
             }
-          }
-          else {
-            data = this.data.find(datum => datum.constituency_id = d.properties.hva_id) || {};
-          }
+            else {
+              data = this.data.find(datum => datum.constituency_id === d.properties.hva_id) || {};
+            }
 
-          return {
-            id: d.properties.id,
-            d: this.path(d.geometry),
-            name: d.properties.name_sv,
-            data,
-          };
-        });
+            result.push({
+              id: d.properties.id || d.properties.hva_id,
+              d: this.path(d.geometry),
+              name: d.properties.name_sv,
+              data,
+            });
+          }
+          return result;
+        }, []);
       }
       return null;
     },
@@ -221,7 +230,7 @@ export default {
     },
     getFill(data) {
       if (!data) return 'transparent';
-      return data[this.type] ? this.colorScale(data[this.type]) : 'transparent';
+      return this.colorScale(data[this.type]);
     },
     onClick(id) {
       this.selected = id;

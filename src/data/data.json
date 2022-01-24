@@ -1,127 +1,127 @@
 [
   {
-    "mean_age":49.3559322034,
-    "female_share":49.1525423729,
-    "swedish_share":27.1186440678,
+    "mean_age":51.5593220339,
+    "female_share":50.8474576271,
+    "swedish_share":32.2033898305,
     "constituency_id":"01"
   },
   {
-    "mean_age":50.9130434783,
-    "female_share":43.4782608696,
-    "swedish_share":0.0,
+    "mean_age":52.7101449275,
+    "female_share":60.8695652174,
+    "swedish_share":1.4492753623,
     "constituency_id":"02"
   },
   {
-    "mean_age":47.8481012658,
-    "female_share":45.5696202532,
-    "swedish_share":15.1898734177,
+    "mean_age":46.7848101266,
+    "female_share":68.3544303797,
+    "swedish_share":17.7215189873,
     "constituency_id":"03"
   },
   {
-    "mean_age":48.6666666667,
-    "female_share":42.0289855072,
-    "swedish_share":1.4492753623,
+    "mean_age":48.5507246377,
+    "female_share":68.115942029,
+    "swedish_share":2.8985507246,
     "constituency_id":"04"
   },
   {
-    "mean_age":49.9873417722,
-    "female_share":43.0379746835,
-    "swedish_share":11.3924050633,
+    "mean_age":49.746835443,
+    "female_share":51.8987341772,
+    "swedish_share":10.1265822785,
     "constituency_id":"05"
   },
   {
-    "mean_age":48.6231884058,
-    "female_share":49.2753623188,
+    "mean_age":51.7246376812,
+    "female_share":53.6231884058,
     "swedish_share":0.0,
     "constituency_id":"06"
   },
   {
-    "mean_age":47.9152542373,
-    "female_share":47.4576271186,
-    "swedish_share":1.6949152542,
+    "mean_age":50.7288135593,
+    "female_share":61.0169491525,
+    "swedish_share":0.0,
     "constituency_id":"07"
   },
   {
-    "mean_age":48.6582278481,
-    "female_share":40.5063291139,
-    "swedish_share":2.5316455696,
+    "mean_age":49.1772151899,
+    "female_share":56.9620253165,
+    "swedish_share":0.0,
     "constituency_id":"08"
   },
   {
-    "mean_age":50.8985507246,
-    "female_share":36.231884058,
+    "mean_age":52.1449275362,
+    "female_share":49.2753623188,
     "swedish_share":0.0,
     "constituency_id":"09"
   },
   {
-    "mean_age":51.0847457627,
-    "female_share":45.7627118644,
-    "swedish_share":3.3898305085,
+    "mean_age":49.186440678,
+    "female_share":50.8474576271,
+    "swedish_share":1.6949152542,
     "constituency_id":"10"
   },
   {
-    "mean_age":51.2033898305,
-    "female_share":38.9830508475,
+    "mean_age":52.186440678,
+    "female_share":44.0677966102,
     "swedish_share":0.0,
     "constituency_id":"11"
   },
   {
-    "mean_age":53.6610169492,
-    "female_share":42.3728813559,
+    "mean_age":52.406779661,
+    "female_share":52.5423728814,
     "swedish_share":0.0,
     "constituency_id":"12"
   },
   {
-    "mean_age":50.7391304348,
-    "female_share":44.9275362319,
-    "swedish_share":0.0,
+    "mean_age":52.0724637681,
+    "female_share":59.4202898551,
+    "swedish_share":2.8985507246,
     "constituency_id":"13"
   },
   {
-    "mean_age":51.186440678,
-    "female_share":47.4576271186,
+    "mean_age":51.7627118644,
+    "female_share":54.2372881356,
     "swedish_share":0.0,
     "constituency_id":"14"
   },
   {
-    "mean_age":48.0144927536,
-    "female_share":52.1739130435,
+    "mean_age":50.2463768116,
+    "female_share":50.7246376812,
     "swedish_share":0.0,
     "constituency_id":"15"
   },
   {
-    "mean_age":50.8305084746,
-    "female_share":42.3728813559,
-    "swedish_share":1.6949152542,
+    "mean_age":54.0338983051,
+    "female_share":44.0677966102,
+    "swedish_share":0.0,
     "constituency_id":"16"
   },
   {
-    "mean_age":51.8474576271,
-    "female_share":44.0677966102,
-    "swedish_share":67.7966101695,
+    "mean_age":50.7288135593,
+    "female_share":47.4576271186,
+    "swedish_share":66.1016949153,
     "constituency_id":"17"
   },
   {
-    "mean_age":49.5762711864,
-    "female_share":50.8474576271,
-    "swedish_share":22.0338983051,
+    "mean_age":53.3728813559,
+    "female_share":45.7627118644,
+    "swedish_share":10.1694915254,
     "constituency_id":"18"
   },
   {
-    "mean_age":52.8734177215,
-    "female_share":40.5063291139,
+    "mean_age":49.9367088608,
+    "female_share":46.835443038,
     "swedish_share":0.0,
     "constituency_id":"19"
   },
   {
-    "mean_age":52.6271186441,
-    "female_share":33.8983050847,
+    "mean_age":53.6101694915,
+    "female_share":49.1525423729,
     "swedish_share":0.0,
     "constituency_id":"20"
   },
   {
-    "mean_age":52.1355932203,
-    "female_share":49.1525423729,
+    "mean_age":52.4237288136,
+    "female_share":45.7627118644,
     "swedish_share":0.0,
     "constituency_id":"21"
   }
