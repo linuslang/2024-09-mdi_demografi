@@ -3,7 +3,7 @@
     <caption v-if="caption">{{ caption }}</caption>
     <thead>
       <tr :class="{ ascending: sortAsc }">
-        <th @click="handleSort('name')" class="sort" :class="[ sortBy === 'namn' ? 'active' : '']">
+        <th @click="handleSort('name')" class="sort" :class="[ sortBy === 'name' ? 'active' : '']">
           <template v-if="type === 'representation'">Kommun</template><template v-else>Välfärdsområde</template>
         </th>
         <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">{{ label }}</th>
@@ -11,8 +11,11 @@
     </thead>
     <tbody v-if="sortedData">
       <tr v-for="muni in sortedData" :key="muni.id">
-        <td :class="[ sortBy === 'namn' ? 'active' : '']">{{ muni.name }}</td>
-        <td :class="[ sortBy === type ? 'active' : '']">{{ formatValue(muni.data[type], 'Inga uppgifter') }}</td>
+        <td :class="[ sortBy === 'name' ? 'active' : '']">{{ muni.data.name }}</td>
+        <td :class="[ sortBy === type ? 'active' : '']">
+          {{ formatValue(muni.data[type], 'Inga uppgifter') }}
+          <span class="table-rect" :style="`background: ${getFill(muni.data)}`"></span>
+        </td>
       </tr>
     </tbody>
     <tbody v-else>
@@ -40,6 +43,7 @@ export default {
     type: String,
     label: String,
     caption: String,
+    getFill: Function,
   },
   data() {
     return {
@@ -99,6 +103,7 @@ export default {
   margin-bottom: 1em !important;
   margin-top: 1em;
   word-break: initial;
+  color: #000;
 
   th, td {
     padding: 6px !important;
@@ -158,6 +163,14 @@ export default {
     tr.ascending th.active:after {
       content: ' \25B2';
     }
+  }
+
+  .table-rect {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    clear: left;
   }
 }
 </style>

@@ -4,7 +4,7 @@
       <stop offset="0%" :stop-color="colors[0]" />
       <stop offset="100%" :stop-color="colors[1]" />
     </linearGradient>
-    <rect class="background" :height="colors.length * 25 + 60" width="140" />
+    <rect class="background" :height="colors.length * 25 + 60" width="155" />
     <text y="20" x="10" class="map-label" v-if="title">{{ title }}</text>
     <text y="35" x="10" v-if="subtitle">{{ subtitle }}</text>
     <g v-if="type === 'mean_age'">

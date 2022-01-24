@@ -14,8 +14,10 @@
       Andel kvinnor: {{ parseNo(item.data.female_share) }} %
     </p>
     <p v-if="type === 'representation'">
-      <span v-if="item.data.representation">{{ parseNo(item.data.representation) }}</span>
+      <span v-if="item.data.representation">{{ parseNo(item.data.seats) }} / {{ parseNo(item.data.hvaSeats) }} mandat</span>
       <span v-else>Inga mandat</span>
+      <br><span>{{ parseNo(item.data.populationShare, 0) }} % av områdets invånare</span>
+      <br><span>Representation: {{ parseNo(item.data.representation) }} : 1</span>
     </p>
   </div>
 </template>
@@ -39,7 +41,7 @@ export default {
   },
   computed: {
     name() {
-      return this.item.name;
+      return this.item.data.name;
     },
     rightAlign() {
       return 100;

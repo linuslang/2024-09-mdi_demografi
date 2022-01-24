@@ -28,7 +28,7 @@
     />
     <MapLegend :title="factor.title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" :type="type" />
   </svg>
-  <SortedTable :data="paths" :label="factor.label" :type="type" />
+  <SortedTable :data="paths" :label="factor.label" :type="type" :getFill="getFill" />
   <pre v-if="error">{{ error }}</pre>
 </template>
 
@@ -44,6 +44,7 @@ import * as topojson from 'topojson-client'
 
 import data from './data/data.json'
 import muniData from './data/munidata.json'
+import hvaData from './data/hvadata.json'
 import parties from './data/parties.json'
 import partiesObjects from './data/partiesObjects.json'
 
@@ -54,19 +55,19 @@ import ToolTip from './components/ToolTip.vue'
 
 const factors = {
   representation: {
-    title: null,
+    title: 'Representation',
     label: 'Representation',
-    domain: [0.001, 0.75, 1.5],
-    colors: ['#555', '#FF4D5B', '#eeeeee', '#98E2ED'],
+    domain: [0.001, 0.5, 1.5],
+    colors: ['#650000', '#FF4D5B', '#eeeeee', '#03E592'],
     ranges: [
-      'Inga mandat',
-      'Låg representation',
-      'Jämn fördelning',
-      'Hög representation',
+      'Ingen',
+      'Låg (< 0,5 : 1)',
+      'Jämn',
+      'Hög (> 1,5 : 1)',
     ],
   },
   female_share: {
-    title: null,
+    title: 'Könsfördelning',
     label: 'Andel kvinnor',
     domain: [40, 45, 47.5, 52.5, 55, 60],
     colors: ['#009ba1', '#72b7ba', '#b2d2d4', '#eeeeee', '#fec2a4', '#ff975e', '#f96700'],
@@ -84,7 +85,7 @@ const factors = {
     title: 'Medelålder',
     label: 'Medelålder',
     domain: [45, 55],
-    colors: ['#e2f7ff', '#000a47'],
+    colors: ['#C8F2FA', '#00284E'],
     ranges: [45, 55],
   },
   swedish_share: {
@@ -116,11 +117,12 @@ export default {
   },
   data() {
     return {
-      width: 420,
+      width: 440,
       features: null,
       error: false,
       data,
       muniData,
+      hvaData,
       parties,
       partiesObjects,
       selected: null,
@@ -176,17 +178,26 @@ export default {
           if (d.properties.hva_id) {
             let data;
             if (this.type === 'representation') {
-              data = this.muniData[d.properties.id];
+              const muniData = this.muniData[d.properties.id];
+              const hvaData = this.hvaData[d.properties.hva_id];
+
+              data = {
+                seats: muniData.seats,
+                hvaSeats: hvaData.seats,
+                representation: (muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population),
+                populationShare: d.properties.population / hvaData.population * 100,
+              }
             }
             else {
               data = this.data.find(datum => datum.constituency_id === d.properties.hva_id) || {};
             }
 
+            const name = this.type === 'representation' ? d.properties.name_sv : d.properties.short_name_sv;
+
             result.push({
               id: d.properties.id || d.properties.hva_id,
               d: this.path(d.geometry),
-              name: this.type === 'representation' ? d.properties.name_sv : d.properties.short_name_sv,
-              data,
+              data: Object.assign(data, { name }),
             });
           }
           return result;
@@ -259,12 +270,12 @@ export default {
 <style lang="scss">
 #app-2022-01-omradesval_kartor {
   max-width: 640px;
-  margin: 0 15px;
+  margin: 0 15px 1em;
   font-family: 'Open Sans', Arial, sans-serif;
   text-align: center;
 
   @media screen and (min-width: 640px) {
-    margin: 0 auto;
+    margin: 0 auto 1em;
   }
 
   .election-map {
@@ -358,8 +369,17 @@ export default {
   background-color: transparent;
   box-shadow: 0 0 0 2px inset #131415;
 
+  @media (prefers-color-scheme: dark) {
+    color: #F8F9FA;
+    box-shadow: 0 0 0 2px inset #F8F9FA;
+  }
+
   &:hover, &:active {
     background: rgba(0, 0, 0, 0.09);
+
+    @media (prefers-color-scheme: dark) {
+      background: rgba(255, 255, 255, 0.17);
+    }
   }
 
   &:before {
