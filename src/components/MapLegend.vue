@@ -4,13 +4,13 @@
       <stop offset="0%" :stop-color="colors[0]" />
       <stop offset="100%" :stop-color="colors[1]" />
     </linearGradient>
-    <rect class="background" :height="colors.length * 25 + 60" width="155" />
+    <rect class="background" :height="type === 'mean_age' ? 180 : colors.length * 25 + 60" width="155" />
     <text y="20" x="10" class="map-label" v-if="title">{{ title }}</text>
-    <text y="35" x="10" v-if="subtitle">{{ subtitle }}</text>
+    <text y="35" x="10" class="map-label" v-if="subtitle">{{ subtitle }}</text>
     <g v-if="type === 'mean_age'">
-      <rect fill="url(#gradient)" height="80" width="15" x="10" y="50" />
+      <rect fill="url(#gradient)" height="120" width="15" x="10" y="50" />
       <text x="30" y="50" alignment-baseline="middle">{{ ranges[0] }} år</text>
-      <text x="30" y="130" alignment-baseline="middle">{{ ranges[1] }} år</text>
+      <text x="30" y="170" alignment-baseline="middle">{{ ranges[1] }} år</text>
     </g>
     <g
       v-for="(color, index) in colors"

@@ -8,7 +8,23 @@
     :parseNo="parseNo"
   />
   <svg role="group" xmlns="http://www.w3.org/2000/svg" :viewBox="viewBox" class="election-map">
-    <g class="paths" v-if="paths">
+    <g class="paths" v-if="muniPaths">
+      <MapPath v-for="path in muniPaths" :path="path"
+        :d="path.d" :key="path.id"
+        :fill="getFill(path.data)"
+        @hover-start="showToolTip"
+        @hover-end="hideToolTip" />
+      <MapPath v-for="path in paths" :path="path" class="hva-path"
+        :d="path.d" :key="path.id"
+        fill="transparent" />
+      <path
+        :d="selectedPath.d"
+        fill="none"
+        class="active"
+        v-if="selectedPath"
+      />
+    </g>
+    <g class="paths" v-else-if="paths">
       <MapPath v-for="path in paths" :path="path"
         :d="path.d" :key="path.id"
         :fill="getFill(path.data)"
@@ -28,7 +44,7 @@
     />
     <MapLegend :title="factor.title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" :type="type" />
   </svg>
-  <SortedTable :data="paths" :label="factor.label" :type="type" :getFill="getFill" />
+  <SortedTable :data="this.type === 'representation' ? muniPaths : paths" :label="factor.label" :suffix="factor.suffix" :type="type" :getFill="getFill" />
   <pre v-if="error">{{ error }}</pre>
 </template>
 
@@ -55,8 +71,10 @@ import ToolTip from './components/ToolTip.vue'
 
 const factors = {
   representation: {
-    title: 'Representation',
+    title: 'Kommunens',
+    subtitle: 'representation',
     label: 'Representation',
+    suffix: ': 1',
     domain: [0.001, 0.5, 1.5],
     colors: ['#650000', '#FF4D5B', '#eeeeee', '#03E592'],
     ranges: [
@@ -69,6 +87,7 @@ const factors = {
   female_share: {
     title: 'Könsfördelning',
     label: 'Andel kvinnor',
+    suffix: '%',
     domain: [40, 45, 47.5, 52.5, 55, 60],
     colors: ['#009ba1', '#72b7ba', '#b2d2d4', '#eeeeee', '#fec2a4', '#ff975e', '#f96700'],
     ranges: [
@@ -89,7 +108,9 @@ const factors = {
     ranges: [45, 55],
   },
   swedish_share: {
-    title: 'Andel svenskspråkiga',
+    title: 'Andel',
+    subtitle: 'svenskspråkiga',
+    suffix: '%',
     label: 'Andel svenskspråkiga',
     domain: [0, 10, 20, 50],
     colors: ['#eee', '#FFDB5E', '#EFB42C', '#DC9526', '#AE5D1F'],
@@ -118,6 +139,7 @@ export default {
   data() {
     return {
       width: 440,
+      muniFeatures: null,
       features: null,
       error: false,
       data,
@@ -143,7 +165,7 @@ export default {
       return factors[this.type];
     },
     subtitle() {
-      return false;
+      return factors[this.type].subtitle || null;
     },
     colors() {
       return factors[this.type].colors;
@@ -176,23 +198,36 @@ export default {
       if (this.features) {
         return this.features.features.reduce((result, d) => {
           if (d.properties.hva_id) {
-            let data;
-            if (this.type === 'representation') {
-              const muniData = this.muniData[d.properties.id];
-              const hvaData = this.hvaData[d.properties.hva_id];
+            const data = this.data.find(datum => datum.constituency_id === d.properties.hva_id) || {};
 
-              data = {
-                seats: muniData.seats,
-                hvaSeats: hvaData.seats,
-                representation: (muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population),
-                populationShare: d.properties.population / hvaData.population * 100,
-              }
-            }
-            else {
-              data = this.data.find(datum => datum.constituency_id === d.properties.hva_id) || {};
+            const name = d.properties.short_name_sv;
+
+            result.push({
+              id: d.properties.id || d.properties.hva_id,
+              d: this.path(d.geometry),
+              data: Object.assign(data, { name }),
+            });
+          }
+          return result;
+        }, []);
+      }
+      return null;
+    },
+    muniPaths() {
+      if (this.muniFeatures) {
+        return this.muniFeatures.features.reduce((result, d) => {
+          if (d.properties.hva_id) {
+            const muniData = this.muniData[d.properties.id];
+            const hvaData = this.hvaData[d.properties.hva_id];
+
+            const data = {
+              seats: muniData.seats,
+              hvaSeats: hvaData.seats,
+              representation: (muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population),
+              populationShare: d.properties.population / hvaData.population * 100,
             }
 
-            const name = this.type === 'representation' ? d.properties.name_sv : d.properties.short_name_sv;
+            const name = d.properties.name_sv;
 
             result.push({
               id: d.properties.id || d.properties.hva_id,
@@ -206,7 +241,10 @@ export default {
       return null;
     },
     selectedPath() {
-      if (this.paths && this.selected) {
+      if (this.muniPaths && this.selected) {
+        return this.muniPaths.find((d) => d.id === this.selected.id);
+      }
+      else if (this.paths && this.selected) {
         return this.paths.find((d) => d.id === this.selected.id);
       }
       return null;
@@ -234,8 +272,10 @@ export default {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          const featureType = this.type === 'representation' ? 'munis' : 'hva';
-          this.features = topojson.feature(data, data.objects[featureType]);
+          this.features = topojson.feature(data, data.objects['hva']);
+          if (this.type === 'representation') {
+            this.muniFeatures = topojson.feature(data, data.objects['munis']);
+          }
         })
         .catch((error) => {
           this.error = error;
@@ -287,6 +327,12 @@ export default {
       path {
         stroke-width: 1px;
         stroke: #555;
+      }
+
+      .hva-path {
+        stroke-width: 1.5px;
+        stroke: #333;
+        pointer-events: none;
       }
 
       .active {

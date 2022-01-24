@@ -7,15 +7,17 @@
           <template v-if="type === 'representation'">Kommun</template><template v-else>Välfärdsområde</template>
         </th>
         <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">{{ label }}</th>
+        <th v-if="type === 'representation'" @click="handleSort('seats')" class="sort" :class="[ sortBy === 'seats' ? 'active' : '']">Mandat</th>
       </tr>
     </thead>
     <tbody v-if="sortedData">
       <tr v-for="muni in sortedData" :key="muni.id">
         <td :class="[ sortBy === 'name' ? 'active' : '']">{{ muni.data.name }}</td>
         <td :class="[ sortBy === type ? 'active' : '']">
-          {{ formatValue(muni.data[type], 'Inga uppgifter') }}
+          {{ formatValue(muni.data[type], 'Inga uppgifter') }}<template v-if="suffix">&nbsp;{{ suffix }}</template>
           <span class="table-rect" :style="`background: ${getFill(muni.data)}`"></span>
         </td>
+        <td v-if="type === 'representation'" :class="[ sortBy === 'seats' ? 'active' : '']">{{ muni.data.seats }}</td>
       </tr>
     </tbody>
     <tbody v-else>
@@ -44,6 +46,7 @@ export default {
     label: String,
     caption: String,
     getFill: Function,
+    suffix: String,
   },
   data() {
     return {
@@ -119,7 +122,7 @@ export default {
     }
 
     &.active {
-      background: #daebeb !important;
+      background: #F8F9FA !important;
     }
   }
 
@@ -156,7 +159,7 @@ export default {
       }
 
       &.active {
-        background: #daebeb !important;
+        background: #F8F9FA !important;
       }
     }
 
