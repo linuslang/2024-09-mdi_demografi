@@ -12,25 +12,26 @@
     "remove:svenska:test": "cross-var dataviz-deploy rm svenska $npm_package_name"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.3",
     "d3": "^7.3.0",
     "topojson-client": "^3.1.0",
     "vue": "^3.2.27"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.4.23",
     "@yleisradio/dataviz-deploy": "^0.3.3",
-    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "cross-var": "^1.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.11.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-cli-plugin-yddviz": "^4.3.4"
+    "vue-cli-plugin-yddviz": "~4.5.0"
   },
   "yleDataviz": {
     "externalContent": true

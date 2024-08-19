@@ -1,9 +1,4 @@
 module.exports = {
-  configureWebpack: {
-    output: {
-      jsonpFunction: 'webpackJsonp2022-01-omradesval_kartor',
-    }
-  },
   devServer: {
     host: 'local.yle.fi',
     port: 8080,
