@@ -3,21 +3,8 @@
     <p>
       <strong>{{ name }}</strong><br>
     </p>
-    <p v-if="type === 'swedish_share'">
-      Svenskspråkiga ledamöter: {{ parseNo(item.data.swedish_share, 0) }} %<br>
-    </p>
-    <p v-if="type === 'mean_age'">
-      Medelålder: {{ parseNo(item.data.mean_age) }} år<br>
-    </p>
-    <p v-if="type === 'female_share'">
-      Andel män: {{ parseNo(100 - item.data.female_share) }} %<br>
-      Andel kvinnor: {{ parseNo(item.data.female_share) }} %
-    </p>
     <p v-if="type === 'representation'">
-      <span v-if="item.data.representation">{{ parseNo(item.data.seats) }} / {{ parseNo(item.data.hvaSeats) }} mandat</span>
-      <span v-else>Inga mandat</span>
-      <br><span>{{ parseNo(item.data.populationShare, 0) }} % av områdets invånare</span>
-      <br><span>Representation: {{ parseNo(item.data.representation) }} : 1</span>
+      <span>Förändring 2023-40:<br>{{ parseNo(item.data.representation) }} %</span>
     </p>
   </div>
 </template>

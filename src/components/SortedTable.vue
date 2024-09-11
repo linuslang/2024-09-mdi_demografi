@@ -7,7 +7,7 @@
           <template v-if="type === 'representation'">Kommun</template><template v-else>Välfärdsområde</template>
         </th>
         <th @click="handleSort(type)" class="sort" :class="[ sortBy === type ? 'active' : '']">{{ label }}</th>
-        <th v-if="type === 'representation'" @click="handleSort('seats')" class="sort" :class="[ sortBy === 'seats' ? 'active' : '']">Mandat</th>
+        
       </tr>
     </thead>
     <tbody v-if="sortedData">
@@ -17,7 +17,7 @@
           {{ formatValue(muni.data[type], 'Inga uppgifter') }}<template v-if="suffix">&nbsp;{{ suffix }}</template>
           <span class="table-rect" :style="`background: ${getFill(muni.data)}`"></span>
         </td>
-        <td v-if="type === 'representation'" :class="[ sortBy === 'seats' ? 'active' : '']">{{ muni.data.seats }}</td>
+        
       </tr>
     </tbody>
     <tbody v-else>

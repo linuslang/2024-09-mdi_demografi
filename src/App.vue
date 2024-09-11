@@ -14,22 +14,7 @@
         :fill="getFill(path.data)"
         @hover-start="showToolTip"
         @hover-end="hideToolTip" />
-      <MapPath v-for="path in paths" :path="path" class="hva-path"
-        :d="path.d" :key="path.id"
-        fill="transparent" />
-      <path
-        :d="selectedPath.d"
-        fill="none"
-        class="active"
-        v-if="selectedPath"
-      />
-    </g>
-    <g class="paths" v-else-if="paths">
-      <MapPath v-for="path in paths" :path="path"
-        :d="path.d" :key="path.id"
-        :fill="getFill(path.data)"
-        @hover-start="showToolTip"
-        @hover-end="hideToolTip" />
+      
       <path
         :d="selectedPath.d"
         fill="none"
@@ -44,7 +29,7 @@
     />
     <MapLegend :title="factor.title" :subtitle="subtitle" :colors="colors" :ranges="ranges" :zoomed="zoomed" :type="type" />
   </svg>
-  <SortedTable :data="this.type === 'representation' ? muniPaths : paths" :label="factor.label" :suffix="factor.suffix" :type="type" :getFill="getFill" />
+  <SortedTable :data="muniPaths" :label="factor.label" :suffix="factor.suffix" :type="type" :getFill="getFill" />
   <pre v-if="error">{{ error }}</pre>
 </template>
 
@@ -59,7 +44,7 @@ const d3 = Object.assign(
 import * as topojson from 'topojson-client'
 
 import data from './data/data.json'
-import muniData from './data/munidata.json'
+import muniData from './data/mdi.json'
 import hvaData from './data/hvadata.json'
 import parties from './data/parties.json'
 import partiesObjects from './data/partiesObjects.json'
@@ -71,17 +56,18 @@ import ToolTip from './components/ToolTip.vue'
 
 const factors = {
   representation: {
-    title: 'Kommunens',
-    subtitle: 'representation',
-    label: 'Representation',
-    suffix: ': 1',
-    domain: [0.001, 0.5, 1.5],
-    colors: ['#650000', '#FF4D5B', '#eeeeee', '#03E592'],
+    title: 'Förändring av',
+    subtitle: 'invånarantal 2023-40',
+    label: 'Förändring',
+    suffix: ' %',
+    domain: [-10, -3, 3 , 10],
+    colors: ['#650000', '#FF4D5B','#E8E9EB', '#07CA84', '#058657'],
     ranges: [
-      'Ingen',
-      'Låg (< 0,5 : 1)',
-      'Jämn',
-      'Hög (> 1,5 : 1)',
+      '< -10 procent',
+      '-10 ... -3',
+      '-3 ... +3',
+      '+3 ... +10',
+      '> +10 procent',
     ],
   },
   female_share: {
@@ -140,7 +126,7 @@ export default {
     return {
       width: 440,
       muniFeatures: null,
-      features: null,
+      
       error: false,
       data,
       muniData,
@@ -184,7 +170,7 @@ export default {
         .range(this.colors);
     },
     projection() {
-      const zoomPoint = this.features;
+      const zoomPoint = this.muniFeatures;
       const margin = 0;
 
       return d3.geoTransverseMercator()
@@ -194,43 +180,23 @@ export default {
     path() {
       return d3.geoPath().projection(this.projection);
     },
-    paths() {
-      if (this.features) {
-        return this.features.features.reduce((result, d) => {
-          if (d.properties.hva_id) {
-            const data = this.data.find(datum => datum.constituency_id === d.properties.hva_id) || {};
-
-            const name = d.properties.short_name_sv;
-
-            result.push({
-              id: d.properties.id || d.properties.hva_id,
-              d: this.path(d.geometry),
-              data: Object.assign(data, { name }),
-            });
-          }
-          return result;
-        }, []);
-      }
-      return null;
-    },
+    
     muniPaths() {
       if (this.muniFeatures) {
         return this.muniFeatures.features.reduce((result, d) => {
-          if (d.properties.hva_id) {
+          if (d.properties.id) {
             const muniData = this.muniData[d.properties.id];
-            const hvaData = this.hvaData[d.properties.hva_id];
+            
 
             const data = {
-              seats: muniData.seats,
-              hvaSeats: hvaData.seats,
-              representation: (muniData.seats / hvaData.seats) * (hvaData.population / d.properties.population),
-              populationShare: d.properties.population / hvaData.population * 100,
+              representation: (100*muniData.change),
+              
             }
 
             const name = d.properties.name_sv;
 
             result.push({
-              id: d.properties.id || d.properties.hva_id,
+              id: d.properties.id,
               d: this.path(d.geometry),
               data: Object.assign(data, { name }),
             });
@@ -243,9 +209,6 @@ export default {
     selectedPath() {
       if (this.muniPaths && this.selected) {
         return this.muniPaths.find((d) => d.id === this.selected.id);
-      }
-      else if (this.paths && this.selected) {
-        return this.paths.find((d) => d.id === this.selected.id);
       }
       return null;
     },
@@ -267,15 +230,13 @@ export default {
       this.selected = null;
     },
     initMap() {
-      const url = `${process.env.BASE_URL}data/kommuner-omraden.json`;
+      const url = `${process.env.BASE_URL}data/kommuner-2021.json`;
 
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          this.features = topojson.feature(data, data.objects['hva']);
-          if (this.type === 'representation') {
-            this.muniFeatures = topojson.feature(data, data.objects['munis']);
-          }
+          this.muniFeatures = topojson.feature(data, data.objects['munis']);
+          
         })
         .catch((error) => {
           this.error = error;
@@ -308,7 +269,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app-2022-01-omradesval_kartor {
+#app-2024-09-mdi_demografi {
   max-width: 640px;
   margin: 0 15px 1em;
   font-family: 'Open Sans', Arial, sans-serif;

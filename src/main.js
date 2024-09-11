@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-const appName = '2022-01-omradesval_kartor';
+const appName = '2024-09-mdi_demografi';
 const ROOT_SELECTOR = `#app-${appName}`;
 
 const eventHandlers = {

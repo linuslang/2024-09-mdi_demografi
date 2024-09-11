@@ -1,0 +1,1547 @@
+{
+  "102": {
+    "fi": "Huittinen",
+    "sv": "Vittis",
+    "change": -0.149200555
+  },
+  "103": {
+    "fi": "Humppila",
+    "sv": "Humppila",
+    "change": -0.131582647
+  },
+  "105": {
+    "fi": "Hyrynsalmi",
+    "sv": "Hyrynsalmi",
+    "change": -0.211927601
+  },
+  "106": {
+    "fi": "Hyvinkää",
+    "sv": "Hyvinge",
+    "change": -0.009428101
+  },
+  "108": {
+    "fi": "Hämeenkyrö",
+    "sv": "Tavastkyro",
+    "change": -0.004881691
+  },
+  "109": {
+    "fi": "Hämeenlinna",
+    "sv": "Tavastehus",
+    "change": -0.007672519
+  },
+  "111": {
+    "fi": "Heinola",
+    "sv": "Heinola",
+    "change": -0.121755438
+  },
+  "139": {
+    "fi": "Ii",
+    "sv": "Ijo",
+    "change": -0.062486861
+  },
+  "140": {
+    "fi": "Iisalmi",
+    "sv": "Idensalmi",
+    "change": -0.145827859
+  },
+  "142": {
+    "fi": "Iitti",
+    "sv": "Itis",
+    "change": -0.138901996
+  },
+  "143": {
+    "fi": "Ikaalinen",
+    "sv": "Ikalis",
+    "change": -0.108036232
+  },
+  "145": {
+    "fi": "Ilmajoki",
+    "sv": "Ilmola",
+    "change": -0.035527598
+  },
+  "146": {
+    "fi": "Ilomantsi",
+    "sv": "Ilomants",
+    "change": -0.252853388
+  },
+  "148": {
+    "fi": "Inari",
+    "sv": "Enare",
+    "change": 0.050916603
+  },
+  "149": {
+    "fi": "Inkoo",
+    "sv": "Ingå",
+    "change": -0.050516749
+  },
+  "151": {
+    "fi": "Isojoki",
+    "sv": "Storå",
+    "change": -0.177801434
+  },
+  "152": {
+    "fi": "Isokyrö",
+    "sv": "Storkyro",
+    "change": -0.12246613
+  },
+  "153": {
+    "fi": "Imatra",
+    "sv": "Imatra",
+    "change": -0.210378464
+  },
+  "165": {
+    "fi": "Janakkala",
+    "sv": "Janakkala",
+    "change": -0.07860347
+  },
+  "167": {
+    "fi": "Joensuu",
+    "sv": "Joensuu",
+    "change": -0.000424533
+  },
+  "169": {
+    "fi": "Jokioinen",
+    "sv": "Jockis",
+    "change": -0.163025847
+  },
+  "170": {
+    "fi": "Jomala",
+    "sv": "Jomala",
+    "change": 0.206017184
+  },
+  "171": {
+    "fi": "Joroinen",
+    "sv": "Jorois",
+    "change": -0.151127696
+  },
+  "172": {
+    "fi": "Joutsa",
+    "sv": "Joutsa",
+    "change": -0.226343665
+  },
+  "176": {
+    "fi": "Juuka",
+    "sv": "Juga",
+    "change": -0.23202762
+  },
+  "177": {
+    "fi": "Juupajoki",
+    "sv": "Juupajoki",
+    "change": -0.197218894
+  },
+  "178": {
+    "fi": "Juva",
+    "sv": "Juva",
+    "change": -0.187174749
+  },
+  "179": {
+    "fi": "Jyväskylä",
+    "sv": "Jyväskylä",
+    "change": 0.071996148
+  },
+  "181": {
+    "fi": "Jämijärvi",
+    "sv": "Jämijärvi",
+    "change": -0.136513437
+  },
+  "182": {
+    "fi": "Jämsä",
+    "sv": "Jämsä",
+    "change": -0.192038351
+  },
+  "186": {
+    "fi": "Järvenpää",
+    "sv": "Träskända",
+    "change": 0.123414747
+  },
+  "202": {
+    "fi": "Kaarina",
+    "sv": "S:t Karins",
+    "change": 0.14076589
+  },
+  "204": {
+    "fi": "Kaavi",
+    "sv": "Kaavi",
+    "change": -0.230410925
+  },
+  "205": {
+    "fi": "Kajaani",
+    "sv": "Kajana",
+    "change": -0.089890033
+  },
+  "208": {
+    "fi": "Kalajoki",
+    "sv": "Kalajoki",
+    "change": -0.073805826
+  },
+  "211": {
+    "fi": "Kangasala",
+    "sv": "Kangasala",
+    "change": 0.129116085
+  },
+  "213": {
+    "fi": "Kangasniemi",
+    "sv": "Kangasniemi",
+    "change": -0.178236705
+  },
+  "214": {
+    "fi": "Kankaanpää",
+    "sv": "Kankaanpää",
+    "change": -0.161476514
+  },
+  "216": {
+    "fi": "Kannonkoski",
+    "sv": "Kannonkoski",
+    "change": -0.265744003
+  },
+  "217": {
+    "fi": "Kannus",
+    "sv": "Kannus",
+    "change": -0.143431795
+  },
+  "218": {
+    "fi": "Karijoki",
+    "sv": "Bötom",
+    "change": -0.194468188
+  },
+  "224": {
+    "fi": "Karkkila",
+    "sv": "Högfors",
+    "change": -0.061322161
+  },
+  "226": {
+    "fi": "Karstula",
+    "sv": "Karstula",
+    "change": -0.243864228
+  },
+  "230": {
+    "fi": "Karvia",
+    "sv": "Karvia",
+    "change": -0.207754025
+  },
+  "231": {
+    "fi": "Kaskinen",
+    "sv": "Kaskö",
+    "change": -0.268316183
+  },
+  "232": {
+    "fi": "Kauhajoki",
+    "sv": "Kauhajoki",
+    "change": -0.194241061
+  },
+  "233": {
+    "fi": "Kauhava",
+    "sv": "Kauhava",
+    "change": -0.168522607
+  },
+  "235": {
+    "fi": "Kauniainen",
+    "sv": "Grankulla",
+    "change": 0.017677289
+  },
+  "236": {
+    "fi": "Kaustinen",
+    "sv": "Kaustby",
+    "change": -0.147764797
+  },
+  "239": {
+    "fi": "Keitele",
+    "sv": "Keitele",
+    "change": -0.191535101
+  },
+  "240": {
+    "fi": "Kemi",
+    "sv": "Kemi",
+    "change": -0.189028604
+  },
+  "241": {
+    "fi": "Keminmaa",
+    "sv": "Keminmaa",
+    "change": -0.191903653
+  },
+  "244": {
+    "fi": "Kempele",
+    "sv": "Kempele",
+    "change": 0.119912626
+  },
+  "245": {
+    "fi": "Kerava",
+    "sv": "Kervo",
+    "change": 0.203393635
+  },
+  "249": {
+    "fi": "Keuruu",
+    "sv": "Keuru",
+    "change": -0.169331754
+  },
+  "250": {
+    "fi": "Kihniö",
+    "sv": "Kihniö",
+    "change": -0.202810737
+  },
+  "256": {
+    "fi": "Kinnula",
+    "sv": "Kinnula",
+    "change": -0.221545364
+  },
+  "257": {
+    "fi": "Kirkkonummi",
+    "sv": "Kyrkslätt",
+    "change": 0.143711454
+  },
+  "260": {
+    "fi": "Kitee",
+    "sv": "Kides",
+    "change": -0.18671938
+  },
+  "261": {
+    "fi": "Kittilä",
+    "sv": "Kittilä",
+    "change": 0.113750122
+  },
+  "263": {
+    "fi": "Kiuruvesi",
+    "sv": "Kiuruvesi",
+    "change": -0.22697998
+  },
+  "265": {
+    "fi": "Kivijärvi",
+    "sv": "Kivijärvi",
+    "change": -0.227227743
+  },
+  "271": {
+    "fi": "Kokemäki",
+    "sv": "Kumo",
+    "change": -0.152235907
+  },
+  "272": {
+    "fi": "Kokkola",
+    "sv": "Karleby",
+    "change": 0.000203037
+  },
+  "273": {
+    "fi": "Kolari",
+    "sv": "Kolari",
+    "change": -0.01914947
+  },
+  "275": {
+    "fi": "Konnevesi",
+    "sv": "Konnevesi",
+    "change": -0.189360452
+  },
+  "276": {
+    "fi": "Kontiolahti",
+    "sv": "Kontiolax",
+    "change": -0.029431242
+  },
+  "280": {
+    "fi": "Korsnäs",
+    "sv": "Korsnäs",
+    "change": -0.122588682
+  },
+  "284": {
+    "fi": "Koski Tl",
+    "sv": "Koskis",
+    "change": -0.10769226
+  },
+  "285": {
+    "fi": "Kotka",
+    "sv": "Kotka",
+    "change": -0.103656758
+  },
+  "286": {
+    "fi": "Kouvola",
+    "sv": "Kouvola",
+    "change": -0.147690018
+  },
+  "287": {
+    "fi": "Kristiinankaupunki",
+    "sv": "Kristinestad",
+    "change": -0.234986392
+  },
+  "288": {
+    "fi": "Kruunupyy",
+    "sv": "Kronoby",
+    "change": -0.111665085
+  },
+  "290": {
+    "fi": "Kuhmo",
+    "sv": "Kuhmo",
+    "change": -0.242955354
+  },
+  "291": {
+    "fi": "Kuhmoinen",
+    "sv": "Kuhmois",
+    "change": -0.147138479
+  },
+  "295": {
+    "fi": "Kumlinge",
+    "sv": "Kumlinge",
+    "change": -0.169721329
+  },
+  "297": {
+    "fi": "Kuopio",
+    "sv": "Kuopio",
+    "change": 0.061001286
+  },
+  "300": {
+    "fi": "Kuortane",
+    "sv": "Kuortane",
+    "change": -0.202393999
+  },
+  "301": {
+    "fi": "Kurikka",
+    "sv": "Kurikka",
+    "change": -0.165281861
+  },
+  "304": {
+    "fi": "Kustavi",
+    "sv": "Gustavs",
+    "change": -0.06164598
+  },
+  "305": {
+    "fi": "Kuusamo",
+    "sv": "Kuusamo",
+    "change": -0.087005953
+  },
+  "309": {
+    "fi": "Outokumpu",
+    "sv": "Outokumpu",
+    "change": -0.176101348
+  },
+  "312": {
+    "fi": "Kyyjärvi",
+    "sv": "Kyyjärvi",
+    "change": -0.292036194
+  },
+  "316": {
+    "fi": "Kärkölä",
+    "sv": "Kärkölä",
+    "change": -0.131000792
+  },
+  "317": {
+    "fi": "Kärsämäki",
+    "sv": "Kärsämäki",
+    "change": -0.190598491
+  },
+  "318": {
+    "fi": "Kökar",
+    "sv": "Kökar",
+    "change": 0.044506969
+  },
+  "320": {
+    "fi": "Kemijärvi",
+    "sv": "Kemijärvi",
+    "change": -0.127582249
+  },
+  "322": {
+    "fi": "Kemiönsaari",
+    "sv": "Kimitoön",
+    "change": -0.099451392
+  },
+  "398": {
+    "fi": "Lahti",
+    "sv": "Lahtis",
+    "change": 0.00499227
+  },
+  "399": {
+    "fi": "Laihia",
+    "sv": "Laihela",
+    "change": -0.130705504
+  },
+  "400": {
+    "fi": "Laitila",
+    "sv": "Letala",
+    "change": -0.101065412
+  },
+  "402": {
+    "fi": "Lapinlahti",
+    "sv": "Lapinlahti",
+    "change": -0.150998698
+  },
+  "403": {
+    "fi": "Lappajärvi",
+    "sv": "Lappajärvi",
+    "change": -0.240185311
+  },
+  "405": {
+    "fi": "Lappeenranta",
+    "sv": "Villmanstrand",
+    "change": -0.044874387
+  },
+  "407": {
+    "fi": "Lapinjärvi",
+    "sv": "Lappträsk",
+    "change": -0.054588854
+  },
+  "408": {
+    "fi": "Lapua",
+    "sv": "Lappo",
+    "change": -0.091707942
+  },
+  "410": {
+    "fi": "Laukaa",
+    "sv": "Laukas",
+    "change": -0.05629985
+  },
+  "416": {
+    "fi": "Lemi",
+    "sv": "Lemi",
+    "change": -0.116539929
+  },
+  "417": {
+    "fi": "Lemland",
+    "sv": "Lemland",
+    "change": 0.12721644
+  },
+  "418": {
+    "fi": "Lempäälä",
+    "sv": "Lempäälä",
+    "change": 0.112571292
+  },
+  "420": {
+    "fi": "Leppävirta",
+    "sv": "Leppävirta",
+    "change": -0.177244845
+  },
+  "421": {
+    "fi": "Lestijärvi",
+    "sv": "Lestijärvi",
+    "change": -0.204210989
+  },
+  "422": {
+    "fi": "Lieksa",
+    "sv": "Lieksa",
+    "change": -0.247569543
+  },
+  "423": {
+    "fi": "Lieto",
+    "sv": "Lundo",
+    "change": 0.082325
+  },
+  "425": {
+    "fi": "Liminka",
+    "sv": "Limingo",
+    "change": 0.020203688
+  },
+  "426": {
+    "fi": "Liperi",
+    "sv": "Libelits",
+    "change": -0.045150349
+  },
+  "430": {
+    "fi": "Loimaa",
+    "sv": "Loimaa",
+    "change": -0.126780825
+  },
+  "433": {
+    "fi": "Loppi",
+    "sv": "Loppi",
+    "change": -0.069655708
+  },
+  "434": {
+    "fi": "Loviisa",
+    "sv": "Lovisa",
+    "change": -0.092924398
+  },
+  "435": {
+    "fi": "Luhanka",
+    "sv": "Luhanka",
+    "change": -0.059076273
+  },
+  "436": {
+    "fi": "Lumijoki",
+    "sv": "Lumijoki",
+    "change": -0.05191225
+  },
+  "438": {
+    "fi": "Lumparland",
+    "sv": "Lumparland",
+    "change": -0.117139272
+  },
+  "440": {
+    "fi": "Luoto",
+    "sv": "Larsmo",
+    "change": 0.196773279
+  },
+  "441": {
+    "fi": "Luumäki",
+    "sv": "Luumäki",
+    "change": -0.168271992
+  },
+  "444": {
+    "fi": "Lohja",
+    "sv": "Lojo",
+    "change": -0.051438212
+  },
+  "445": {
+    "fi": "Parainen",
+    "sv": "Pargas",
+    "change": -0.065207532
+  },
+  "475": {
+    "fi": "Maalahti",
+    "sv": "Malax",
+    "change": -0.0594287
+  },
+  "478": {
+    "fi": "Maarianhamina - Mariehamn",
+    "sv": "Mariehamn",
+    "change": 0.123423331
+  },
+  "480": {
+    "fi": "Marttila",
+    "sv": "S:t Mårtens",
+    "change": -0.100538213
+  },
+  "481": {
+    "fi": "Masku",
+    "sv": "Masku",
+    "change": -0.02969546
+  },
+  "483": {
+    "fi": "Merijärvi",
+    "sv": "Merijärvi",
+    "change": -0.166841546
+  },
+  "484": {
+    "fi": "Merikarvia",
+    "sv": "Sastmola",
+    "change": -0.170697563
+  },
+  "489": {
+    "fi": "Miehikkälä",
+    "sv": "Miehikkälä",
+    "change": -0.169425582
+  },
+  "491": {
+    "fi": "Mikkeli",
+    "sv": "S:t Michel",
+    "change": -0.102278106
+  },
+  "494": {
+    "fi": "Muhos",
+    "sv": "Muhos",
+    "change": -0.044955793
+  },
+  "495": {
+    "fi": "Multia",
+    "sv": "Multia",
+    "change": -0.222634207
+  },
+  "498": {
+    "fi": "Muonio",
+    "sv": "Muonio",
+    "change": -0.036661534
+  },
+  "499": {
+    "fi": "Mustasaari",
+    "sv": "Korsholm",
+    "change": 0.026327479
+  },
+  "500": {
+    "fi": "Muurame",
+    "sv": "Muurame",
+    "change": 0.03382929
+  },
+  "503": {
+    "fi": "Mynämäki",
+    "sv": "Virmo",
+    "change": -0.080014578
+  },
+  "504": {
+    "fi": "Myrskylä",
+    "sv": "Mörskom",
+    "change": -0.157299603
+  },
+  "505": {
+    "fi": "Mäntsälä",
+    "sv": "Mäntsälä",
+    "change": 0.011759949
+  },
+  "507": {
+    "fi": "Mäntyharju",
+    "sv": "Mäntyharju",
+    "change": -0.196920458
+  },
+  "508": {
+    "fi": "Mänttä-Vilppula",
+    "sv": "Mänttä-Vilppula",
+    "change": -0.20373894
+  },
+  "529": {
+    "fi": "Naantali",
+    "sv": "Nådendal",
+    "change": 0.072515543
+  },
+  "531": {
+    "fi": "Nakkila",
+    "sv": "Nakkila",
+    "change": -0.22663104
+  },
+  "535": {
+    "fi": "Nivala",
+    "sv": "Nivala",
+    "change": -0.103478724
+  },
+  "536": {
+    "fi": "Nokia",
+    "sv": "Nokia",
+    "change": 0.13177128
+  },
+  "538": {
+    "fi": "Nousiainen",
+    "sv": "Nousis",
+    "change": -0.016586008
+  },
+  "541": {
+    "fi": "Nurmes",
+    "sv": "Nurmes",
+    "change": -0.253264614
+  },
+  "543": {
+    "fi": "Nurmijärvi",
+    "sv": "Nurmijärvi",
+    "change": 0.102775353
+  },
+  "545": {
+    "fi": "Närpiö",
+    "sv": "Närpes",
+    "change": -0.006824856
+  },
+  "560": {
+    "fi": "Orimattila",
+    "sv": "Orimattila",
+    "change": -0.086517275
+  },
+  "561": {
+    "fi": "Oripää",
+    "sv": "Oripää",
+    "change": -0.171047117
+  },
+  "562": {
+    "fi": "Orivesi",
+    "sv": "Orivesi",
+    "change": -0.07830117
+  },
+  "563": {
+    "fi": "Oulainen",
+    "sv": "Oulainen",
+    "change": -0.147132825
+  },
+  "564": {
+    "fi": "Oulu",
+    "sv": "Uleåborg",
+    "change": 0.101617111
+  },
+  "576": {
+    "fi": "Padasjoki",
+    "sv": "Padasjoki",
+    "change": -0.189223243
+  },
+  "577": {
+    "fi": "Paimio",
+    "sv": "Pemar",
+    "change": 0.032356552
+  },
+  "578": {
+    "fi": "Paltamo",
+    "sv": "Paltamo",
+    "change": -0.164587285
+  },
+  "580": {
+    "fi": "Parikkala",
+    "sv": "Parikkala",
+    "change": -0.267099716
+  },
+  "581": {
+    "fi": "Parkano",
+    "sv": "Parkano",
+    "change": -0.150402903
+  },
+  "583": {
+    "fi": "Pelkosenniemi",
+    "sv": "Pelkosenniemi",
+    "change": -0.043544876
+  },
+  "584": {
+    "fi": "Perho",
+    "sv": "Perho",
+    "change": -0.222867506
+  },
+  "588": {
+    "fi": "Pertunmaa",
+    "sv": "Pertunmaa",
+    "change": -0.142567857
+  },
+  "592": {
+    "fi": "Petäjävesi",
+    "sv": "Petäjävesi",
+    "change": -0.121871913
+  },
+  "593": {
+    "fi": "Pieksämäki",
+    "sv": "Pieksämäki",
+    "change": -0.147953323
+  },
+  "595": {
+    "fi": "Pielavesi",
+    "sv": "Pielavesi",
+    "change": -0.243623504
+  },
+  "598": {
+    "fi": "Pietarsaari",
+    "sv": "Jakobstad",
+    "change": 0.041020618
+  },
+  "599": {
+    "fi": "Pedersören kunta",
+    "sv": "Pedersöre",
+    "change": 0.000867452
+  },
+  "601": {
+    "fi": "Pihtipudas",
+    "sv": "Pihtipudas",
+    "change": -0.213803141
+  },
+  "604": {
+    "fi": "Pirkkala",
+    "sv": "Birkala",
+    "change": 0.117385006
+  },
+  "607": {
+    "fi": "Polvijärvi",
+    "sv": "Polvijärvi",
+    "change": -0.196405874
+  },
+  "608": {
+    "fi": "Pomarkku",
+    "sv": "Påmark",
+    "change": -0.182621906
+  },
+  "609": {
+    "fi": "Pori",
+    "sv": "Björneborg",
+    "change": -0.060790662
+  },
+  "611": {
+    "fi": "Pornainen",
+    "sv": "Borgnäs",
+    "change": -0.027006187
+  },
+  "614": {
+    "fi": "Posio",
+    "sv": "Posio",
+    "change": -0.23552783
+  },
+  "615": {
+    "fi": "Pudasjärvi",
+    "sv": "Pudasjärvi",
+    "change": -0.124816333
+  },
+  "616": {
+    "fi": "Pukkila",
+    "sv": "Pukkila",
+    "change": -0.069133224
+  },
+  "619": {
+    "fi": "Punkalaidun",
+    "sv": "Punkalaidun",
+    "change": -0.130060829
+  },
+  "620": {
+    "fi": "Puolanka",
+    "sv": "Puolanka",
+    "change": -0.207537564
+  },
+  "623": {
+    "fi": "Puumala",
+    "sv": "Puumala",
+    "change": -0.049146767
+  },
+  "624": {
+    "fi": "Pyhtää",
+    "sv": "Pyttis",
+    "change": -0.109017857
+  },
+  "625": {
+    "fi": "Pyhäjoki",
+    "sv": "Pyhäjoki",
+    "change": -0.081184509
+  },
+  "626": {
+    "fi": "Pyhäjärvi",
+    "sv": "Pyhäjärvi",
+    "change": -0.252855997
+  },
+  "630": {
+    "fi": "Pyhäntä",
+    "sv": "Pyhäntä",
+    "change": -0.054021657
+  },
+  "631": {
+    "fi": "Pyhäranta",
+    "sv": "Pyhäranta",
+    "change": -0.184536655
+  },
+  "635": {
+    "fi": "Pälkäne",
+    "sv": "Pälkäne",
+    "change": -0.066632325
+  },
+  "636": {
+    "fi": "Pöytyä",
+    "sv": "Pöytyä",
+    "change": -0.146405901
+  },
+  "638": {
+    "fi": "Porvoo",
+    "sv": "Borgå",
+    "change": 0.009295987
+  },
+  "678": {
+    "fi": "Raahe",
+    "sv": "Brahestad",
+    "change": -0.154963348
+  },
+  "680": {
+    "fi": "Raisio",
+    "sv": "Reso",
+    "change": 0.096451797
+  },
+  "681": {
+    "fi": "Rantasalmi",
+    "sv": "Rantasalmi",
+    "change": -0.136095115
+  },
+  "683": {
+    "fi": "Ranua",
+    "sv": "Ranua",
+    "change": -0.109395177
+  },
+  "684": {
+    "fi": "Rauma",
+    "sv": "Raumo",
+    "change": -0.049672569
+  },
+  "686": {
+    "fi": "Rautalampi",
+    "sv": "Rautalampi",
+    "change": -0.200815741
+  },
+  "687": {
+    "fi": "Rautavaara",
+    "sv": "Rautavaara",
+    "change": -0.290769939
+  },
+  "689": {
+    "fi": "Rautjärvi",
+    "sv": "Rautjärvi",
+    "change": -0.148066286
+  },
+  "691": {
+    "fi": "Reisjärvi",
+    "sv": "Reisjärvi",
+    "change": -0.187060867
+  },
+  "694": {
+    "fi": "Riihimäki",
+    "sv": "Riihimäki",
+    "change": -0.040427147
+  },
+  "697": {
+    "fi": "Ristijärvi",
+    "sv": "Ristijärvi",
+    "change": -0.184091987
+  },
+  "698": {
+    "fi": "Rovaniemi",
+    "sv": "Rovaniemi",
+    "change": 0.045436176
+  },
+  "700": {
+    "fi": "Ruokolahti",
+    "sv": "Ruokolax",
+    "change": -0.207617618
+  },
+  "702": {
+    "fi": "Ruovesi",
+    "sv": "Ruovesi",
+    "change": -0.118074983
+  },
+  "704": {
+    "fi": "Rusko",
+    "sv": "Rusko",
+    "change": 0.037627034
+  },
+  "707": {
+    "fi": "Rääkkylä",
+    "sv": "Rääkkylä",
+    "change": -0.286397351
+  },
+  "710": {
+    "fi": "Raasepori",
+    "sv": "Raseborg",
+    "change": -0.070904955
+  },
+  "729": {
+    "fi": "Saarijärvi",
+    "sv": "Saarijärvi",
+    "change": -0.176697535
+  },
+  "732": {
+    "fi": "Salla",
+    "sv": "Salla",
+    "change": -0.131118799
+  },
+  "734": {
+    "fi": "Salo",
+    "sv": "Salo",
+    "change": -0.082354196
+  },
+  "736": {
+    "fi": "Saltvik",
+    "sv": "Saltvik",
+    "change": 0.003550436
+  },
+  "738": {
+    "fi": "Sauvo",
+    "sv": "Sagu",
+    "change": 0.01172927
+  },
+  "739": {
+    "fi": "Savitaipale",
+    "sv": "Savitaipale",
+    "change": -0.133347318
+  },
+  "740": {
+    "fi": "Savonlinna",
+    "sv": "Nyslott",
+    "change": -0.180866523
+  },
+  "742": {
+    "fi": "Savukoski",
+    "sv": "Savukoski",
+    "change": -0.130512097
+  },
+  "743": {
+    "fi": "Seinäjoki",
+    "sv": "Seinäjoki",
+    "change": 0.051089562
+  },
+  "746": {
+    "fi": "Sievi",
+    "sv": "Sievi",
+    "change": -0.200728967
+  },
+  "747": {
+    "fi": "Siikainen",
+    "sv": "Siikais",
+    "change": -0.28022548
+  },
+  "748": {
+    "fi": "Siikajoki",
+    "sv": "Siikajoki",
+    "change": -0.211638163
+  },
+  "749": {
+    "fi": "Siilinjärvi",
+    "sv": "Siilinjärvi",
+    "change": -0.065265346
+  },
+  "751": {
+    "fi": "Simo",
+    "sv": "Simo",
+    "change": -0.198281938
+  },
+  "753": {
+    "fi": "Sipoo",
+    "sv": "Sibbo",
+    "change": 0.120237152
+  },
+  "755": {
+    "fi": "Siuntio",
+    "sv": "Sjundeå",
+    "change": -0.030548942
+  },
+  "758": {
+    "fi": "Sodankylä",
+    "sv": "Sodankylä",
+    "change": -0.090114679
+  },
+  "759": {
+    "fi": "Soini",
+    "sv": "Soini",
+    "change": -0.293592277
+  },
+  "761": {
+    "fi": "Somero",
+    "sv": "Somero",
+    "change": -0.153878204
+  },
+  "762": {
+    "fi": "Sonkajärvi",
+    "sv": "Sonkajärvi",
+    "change": -0.236158158
+  },
+  "765": {
+    "fi": "Sotkamo",
+    "sv": "Sotkamo",
+    "change": -0.081718836
+  },
+  "766": {
+    "fi": "Sottunga",
+    "sv": "Sottunga",
+    "change": 0.088271892
+  },
+  "768": {
+    "fi": "Sulkava",
+    "sv": "Sulkava",
+    "change": -0.168111275
+  },
+  "771": {
+    "fi": "Sund",
+    "sv": "Sund",
+    "change": -0.032673033
+  },
+  "777": {
+    "fi": "Suomussalmi",
+    "sv": "Suomussalmi",
+    "change": -0.235449214
+  },
+  "778": {
+    "fi": "Suonenjoki",
+    "sv": "Suonenjoki",
+    "change": -0.157381083
+  },
+  "781": {
+    "fi": "Sysmä",
+    "sv": "Sysmä",
+    "change": -0.183538394
+  },
+  "783": {
+    "fi": "Säkylä",
+    "sv": "Säkylä",
+    "change": -0.218886629
+  },
+  "785": {
+    "fi": "Vaala",
+    "sv": "Vaala",
+    "change": -0.144212216
+  },
+  "790": {
+    "fi": "Sastamala",
+    "sv": "Sastamala",
+    "change": -0.118279976
+  },
+  "791": {
+    "fi": "Siikalatva",
+    "sv": "Siikalatva",
+    "change": -0.19454305
+  },
+  "831": {
+    "fi": "Taipalsaari",
+    "sv": "Taipalsaari",
+    "change": -0.065009413
+  },
+  "832": {
+    "fi": "Taivalkoski",
+    "sv": "Taivalkoski",
+    "change": -0.188765488
+  },
+  "833": {
+    "fi": "Taivassalo",
+    "sv": "Tövsala",
+    "change": 0.023234781
+  },
+  "834": {
+    "fi": "Tammela",
+    "sv": "Tammela",
+    "change": -0.097701054
+  },
+  "837": {
+    "fi": "Tampere",
+    "sv": "Tammerfors",
+    "change": 0.178302649
+  },
+  "844": {
+    "fi": "Tervo",
+    "sv": "Tervo",
+    "change": -0.196312418
+  },
+  "845": {
+    "fi": "Tervola",
+    "sv": "Tervola",
+    "change": -0.102531596
+  },
+  "846": {
+    "fi": "Teuva",
+    "sv": "Östermark",
+    "change": -0.21955759
+  },
+  "848": {
+    "fi": "Tohmajärvi",
+    "sv": "Tohmajärvi",
+    "change": -0.225439263
+  },
+  "849": {
+    "fi": "Toholampi",
+    "sv": "Toholampi",
+    "change": -0.220328824
+  },
+  "850": {
+    "fi": "Toivakka",
+    "sv": "Toivakka",
+    "change": -0.083524706
+  },
+  "851": {
+    "fi": "Tornio",
+    "sv": "Torneå",
+    "change": -0.093203178
+  },
+  "853": {
+    "fi": "Turku",
+    "sv": "Åbo",
+    "change": 0.164314446
+  },
+  "854": {
+    "fi": "Pello",
+    "sv": "Pello",
+    "change": -0.122639539
+  },
+  "857": {
+    "fi": "Tuusniemi",
+    "sv": "Tuusniemi",
+    "change": -0.173641065
+  },
+  "858": {
+    "fi": "Tuusula",
+    "sv": "Tusby",
+    "change": 0.160201329
+  },
+  "859": {
+    "fi": "Tyrnävä",
+    "sv": "Tyrnävä",
+    "change": -0.069635833
+  },
+  "886": {
+    "fi": "Ulvila",
+    "sv": "Ulvsby",
+    "change": -0.133640008
+  },
+  "887": {
+    "fi": "Urjala",
+    "sv": "Urjala",
+    "change": -0.076851836
+  },
+  "889": {
+    "fi": "Utajärvi",
+    "sv": "Utajärvi",
+    "change": -0.158797405
+  },
+  "890": {
+    "fi": "Utsjoki",
+    "sv": "Utsjoki",
+    "change": 0.004756506
+  },
+  "892": {
+    "fi": "Uurainen",
+    "sv": "Uurainen",
+    "change": -0.110040069
+  },
+  "893": {
+    "fi": "Uusikaarlepyy",
+    "sv": "Nykarleby",
+    "change": -0.120223066
+  },
+  "895": {
+    "fi": "Uusikaupunki",
+    "sv": "Nystad",
+    "change": -0.194844276
+  },
+  "905": {
+    "fi": "Vaasa",
+    "sv": "Vasa",
+    "change": 0.052488707
+  },
+  "908": {
+    "fi": "Valkeakoski",
+    "sv": "Valkeakoski",
+    "change": -0.080511965
+  },
+  "915": {
+    "fi": "Varkaus",
+    "sv": "Varkaus",
+    "change": -0.146108229
+  },
+  "918": {
+    "fi": "Vehmaa",
+    "sv": "Vemo",
+    "change": -0.081852555
+  },
+  "921": {
+    "fi": "Vesanto",
+    "sv": "Vesanto",
+    "change": -0.165678301
+  },
+  "922": {
+    "fi": "Vesilahti",
+    "sv": "Vesilahti",
+    "change": 0.103325692
+  },
+  "924": {
+    "fi": "Veteli",
+    "sv": "Vetil",
+    "change": -0.179348576
+  },
+  "925": {
+    "fi": "Vieremä",
+    "sv": "Vieremä",
+    "change": -0.176304224
+  },
+  "927": {
+    "fi": "Vihti",
+    "sv": "Vichtis",
+    "change": -0.043170612
+  },
+  "931": {
+    "fi": "Viitasaari",
+    "sv": "Viitasaari",
+    "change": -0.20838827
+  },
+  "934": {
+    "fi": "Vimpeli",
+    "sv": "Vindala",
+    "change": -0.25184632
+  },
+  "935": {
+    "fi": "Virolahti",
+    "sv": "Vederlax",
+    "change": -0.162465599
+  },
+  "936": {
+    "fi": "Virrat",
+    "sv": "Virdois",
+    "change": -0.207409063
+  },
+  "941": {
+    "fi": "Vårdö",
+    "sv": "Vårdö",
+    "change": -0.052660689
+  },
+  "946": {
+    "fi": "Vöyri",
+    "sv": "Vörå",
+    "change": -0.158712681
+  },
+  "976": {
+    "fi": "Ylitornio",
+    "sv": "Övertorneå",
+    "change": -0.185207071
+  },
+  "977": {
+    "fi": "Ylivieska",
+    "sv": "Ylivieska",
+    "change": -0.053551317
+  },
+  "980": {
+    "fi": "Ylöjärvi",
+    "sv": "Ylöjärvi",
+    "change": 0.025082099
+  },
+  "981": {
+    "fi": "Ypäjä",
+    "sv": "Ypäjä",
+    "change": -0.140819929
+  },
+  "989": {
+    "fi": "Ähtäri",
+    "sv": "Etseri",
+    "change": -0.191933253
+  },
+  "992": {
+    "fi": "Äänekoski",
+    "sv": "Äänekoski",
+    "change": -0.147348782
+  },
+  "020": {
+    "fi": "Akaa",
+    "sv": "Ackas",
+    "change": -0.02690474
+  },
+  "005": {
+    "fi": "Alajärvi",
+    "sv": "Alajärvi",
+    "change": -0.218246249
+  },
+  "009": {
+    "fi": "Alavieska",
+    "sv": "Alavieska",
+    "change": -0.167145649
+  },
+  "010": {
+    "fi": "Alavus",
+    "sv": "Alavo",
+    "change": -0.150375661
+  },
+  "016": {
+    "fi": "Asikkala",
+    "sv": "Asikkala",
+    "change": -0.079444622
+  },
+  "018": {
+    "fi": "Askola",
+    "sv": "Askola",
+    "change": -0.109200951
+  },
+  "019": {
+    "fi": "Aura",
+    "sv": "Aura",
+    "change": 0.020586424
+  },
+  "035": {
+    "fi": "Brändö",
+    "sv": "Brändö",
+    "change": -0.105782763
+  },
+  "043": {
+    "fi": "Eckerö",
+    "sv": "Eckerö",
+    "change": 0.027188925
+  },
+  "046": {
+    "fi": "Enonkoski",
+    "sv": "Enonkoski",
+    "change": -0.19664351
+  },
+  "047": {
+    "fi": "Enontekiö",
+    "sv": "Enontekis",
+    "change": -0.096526237
+  },
+  "049": {
+    "fi": "Espoo",
+    "sv": "Esbo",
+    "change": 0.241878536
+  },
+  "050": {
+    "fi": "Eura",
+    "sv": "Eura",
+    "change": -0.157880913
+  },
+  "051": {
+    "fi": "Eurajoki",
+    "sv": "Euraåminne",
+    "change": -0.121209625
+  },
+  "052": {
+    "fi": "Evijärvi",
+    "sv": "Evijärvi",
+    "change": -0.241945295
+  },
+  "060": {
+    "fi": "Finström",
+    "sv": "Finström",
+    "change": 0.025264842
+  },
+  "061": {
+    "fi": "Forssa",
+    "sv": "Forssa",
+    "change": -0.099158927
+  },
+  "062": {
+    "fi": "Föglö",
+    "sv": "Föglö",
+    "change": -0.103977639
+  },
+  "065": {
+    "fi": "Geta",
+    "sv": "Geta",
+    "change": 0.199921709
+  },
+  "069": {
+    "fi": "Haapajärvi",
+    "sv": "Haapajärvi",
+    "change": -0.203723977
+  },
+  "071": {
+    "fi": "Haapavesi",
+    "sv": "Haapavesi",
+    "change": -0.160653529
+  },
+  "072": {
+    "fi": "Hailuoto",
+    "sv": "Karlö",
+    "change": -0.026999888
+  },
+  "074": {
+    "fi": "Halsua",
+    "sv": "Halso",
+    "change": -0.272714419
+  },
+  "075": {
+    "fi": "Hamina",
+    "sv": "Fredrikshamn",
+    "change": -0.128624028
+  },
+  "076": {
+    "fi": "Hammarland",
+    "sv": "Hammarland",
+    "change": 0.181378451
+  },
+  "077": {
+    "fi": "Hankasalmi",
+    "sv": "Hankasalmi",
+    "change": -0.185168119
+  },
+  "078": {
+    "fi": "Hanko",
+    "sv": "Hangö",
+    "change": -0.18623118
+  },
+  "079": {
+    "fi": "Harjavalta",
+    "sv": "Harjavalta",
+    "change": -0.132804152
+  },
+  "081": {
+    "fi": "Hartola",
+    "sv": "Gustav Adolfs",
+    "change": -0.120884265
+  },
+  "082": {
+    "fi": "Hattula",
+    "sv": "Hattula",
+    "change": -0.064021016
+  },
+  "086": {
+    "fi": "Hausjärvi",
+    "sv": "Hausjärvi",
+    "change": -0.06945585
+  },
+  "090": {
+    "fi": "Heinävesi",
+    "sv": "Heinävesi",
+    "change": -0.276288968
+  },
+  "091": {
+    "fi": "Helsinki",
+    "sv": "Helsingfors",
+    "change": 0.110303572
+  },
+  "097": {
+    "fi": "Hirvensalmi",
+    "sv": "Hirvensalmi",
+    "change": -0.153868098
+  },
+  "098": {
+    "fi": "Hollola",
+    "sv": "Hollola",
+    "change": -0.098762731
+  },
+  "092": {
+    "fi": "Vantaa",
+    "sv": "Vanda",
+    "change": 0.208696035
+  }
+}
